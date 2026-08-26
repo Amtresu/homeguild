@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The HomeGuild — Treasure Valley's vetted home professionals</title>
+<meta name="description" content="A private register of home professionals for Treasure Valley homeowners. Every member has passed a seven-point standard. Boise, Meridian, Eagle, Star, Kuna, Nampa, Caldwell, Middleton.">
+<meta name="theme-color" content="#1E221F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/webgpu":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/tsl":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js"}}</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+  <symbol id="tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.5"/><path d="M6 10.3l2.6 2.6L14 7.5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="The HomeGuild home"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="standard.html">The Standard</a>
+      <a href="register.html">The Register</a>
+      <a href="membership.html">Membership</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <a class="btn sm ghost" href="signin.html">Sign in</a>
+      <a class="btn sm primary" href="membership.html#apply">Apply</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="gpu-bg" data-terrain="sage" aria-hidden="true">
+      <svg class="contours" viewBox="0 0 1440 700" preserveAspectRatio="none" fill="none" stroke="#9BA88D" stroke-width="1">
+        <path d="M0 520C180 480 260 410 420 420S700 520 900 470s340-150 540-120"/>
+        <path d="M0 560C200 520 280 450 440 460S720 560 920 510s340-150 520-120"/>
+        <path d="M0 600C220 560 300 490 460 500S740 600 940 550s340-150 500-120"/>
+        <path d="M200 330C360 300 420 240 560 250S800 340 980 300s300-120 460-100"/>
+        <path d="M280 290C420 260 470 210 600 220S820 300 990 265s300-110 450-95"/>
+        <path d="M0 120C160 150 240 220 400 210S640 110 820 150s320 120 620 40"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="hero-copy">
+        <span class="label">A private register · Treasure Valley, Idaho</span>
+        <h1 class="display h1">The Valley's vetted few, on <em>one</em> list.</h1>
+        <p class="lede">The HomeGuild is a members-only register of home professionals — plumbers to painters, roofers to remodelers — each admitted after a seven-point review we conduct ourselves. Homeowners in Ada and Canyon counties join by application. Businesses join by nomination only.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="membership.html#apply">Apply for membership <svg class="arrow"><use href="#arrow"/></svg></a>
+          <a class="btn" href="standard.html">Read the Standard</a>
+        </div>
+        <p class="hero-note">Boise · Meridian · Eagle · Star · Kuna · Nampa · Caldwell · Middleton</p>
+      </div>
+
+      <aside class="register-card" aria-label="Register summary">
+        <div class="top">
+          <div>
+            <span class="label">Register status</span>
+            <div class="big num">61 firms</div>
+          </div>
+          <svg class="seal" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="48" cy="48" r="45"/>
+            <circle cx="48" cy="48" r="38" stroke-dasharray="2 3"/>
+            <path d="M28 58l10-16 6 8 5-11 9 19" stroke-width="2"/>
+            <path id="sealArc" d="M48 14a34 34 0 1 1-.01 0" fill="none" stroke="none"/>
+            <text font-size="7.5" letter-spacing="1.5" fill="currentColor" stroke="none"><textPath href="#sealArc" startOffset="6%">VETTED · TREASURE VALLEY · MMXXVI ·</textPath></text>
+          </svg>
+        </div>
+        <div class="row"><span class="muted">Applications reviewed</span><b class="num">412</b></div>
+        <div class="row"><span class="muted">Admitted</span><b class="num">61 (14.8%)</b></div>
+        <div class="row"><span class="muted">Removed this year</span><b class="num">3</b></div>
+        <div class="row"><span class="muted">Trades covered</span><b class="num">12</b></div>
+        <div class="row"><span class="muted">Last review cycle</span><b>August 2026</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="container">
+      <div class="stat"><span class="label">Reference calls made</span><span class="v num">1,236</span></div>
+      <div class="stat"><span class="label">Site visits completed</span><span class="v num">188</span></div>
+      <div class="stat"><span class="label">Avg. years in the Valley</span><span class="v num">11.4</span></div>
+      <div class="stat"><span class="label">Member homes served</span><span class="v num">2,900+</span></div>
+    </div>
+  </div>
+
+  <div class="photo-band" aria-label="From recent site visits">
+    <figure class="photo"><img src="assets/carpenter.webp" alt="A carpenter fitting a hardwood cabinet door" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 044 · Table Rock Cabinetry · Site visit, July 2026</figcaption></figure>
+    <figure class="photo"><img src="assets/roofers.webp" alt="Two roofers on a ranch-house roof with the valley behind" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 019 · Payette Roofing · Site visit, June 2026</figcaption></figure>
+    <figure class="photo"><img src="assets/site-visit.webp" alt="A Guild reviewer with a clipboard and a homeowner looking at a new paver patio" loading="lazy" width="2016" height="1344"><figcaption class="cap">Step 05 · A reviewer walks a finished hardscape with the homeowner</figcaption></figure>
+  </div>
+
+  <section class="section" id="standard">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="label">The Standard</span>
+          <h2 class="display h2">Seven checks. In order. Every year.</h2>
+        </div>
+        <p class="lede">Most directories sell a badge to whoever pays. We don't sell placement. A firm passes each of these in sequence or it doesn't appear — and it re-passes all seven every August. <a href="standard.html" class="accent">Read the full Standard →</a></p>
+      </div>
+      <ol class="steps reveal" aria-label="The seven-point standard">
+        <li class="step"><span class="n">01</span><h3>License &amp; registration</h3><p>Verified directly against Idaho DOPL and the Contractor Registration record — not a screenshot from the applicant.</p></li>
+        <li class="step"><span class="n">02</span><h3>Insurance on file</h3><p>Current general liability and, where crews are employed, workers' compensation certificates held by us, renewed on expiry.</p></li>
+        <li class="step"><span class="n">03</span><h3>Three homeowner references, called</h3><p>We phone each one. We ask what went wrong, not just what went right, and how it was handled.</p></li>
+        <li class="step"><span class="n">04</span><h3>Five years operating in the Valley</h3><p>Established here, with a local address and a track record that predates the boom. No pop-up franchises.</p></li>
+        <li class="step"><span class="n">05</span><h3>A site visit to finished work</h3><p>A Guild reviewer walks a completed job, unannounced to the crew, with the homeowner present.</p></li>
+        <li class="step"><span class="n">06</span><h3>Pricing transparency pledge</h3><p>Written estimates, itemized change orders, and no member-only "referral fees" hidden in the quote. Ever.</p></li>
+        <li class="step"><span class="n">07</span><h3>Annual re-review</h3><p>Steps one through six, again, every year. Two substantiated member complaints trigger an immediate review.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="trades">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="label">Trades on the register</span>
+          <h2 class="display h2">Twelve trades. A handful of firms in each.</h2>
+        </div>
+        <p class="lede">We cap admissions per trade so every firm listed is one we'd give a neighbor without caveats. Counts show admitted firms as of the August 2026 cycle.</p>
+      </div>
+      <div class="trades reveal">
+        <a class="trade" href="register.html?trade=Plumbing"><span>Plumbing</span><span class="count num">6 firms</span></a>
+        <a class="trade" href="register.html?trade=HVAC"><span>HVAC</span><span class="count num">5 firms</span></a>
+        <a class="trade" href="register.html?trade=Electrical"><span>Electrical</span><span class="count num">6 firms</span></a>
+        <a class="trade" href="register.html?trade=Roofing"><span>Roofing</span><span class="count num">4 firms</span></a>
+        <a class="trade" href="register.html?trade=Landscape%20%26%20irrigation"><span>Landscape &amp; irrigation</span><span class="count num">7 firms</span></a>
+        <a class="trade" href="register.html?trade=Painting"><span>Painting</span><span class="count num">5 firms</span></a>
+        <a class="trade" href="register.html?trade=Remodel%20%26%20carpentry"><span>Remodel &amp; carpentry</span><span class="count num">8 firms</span></a>
+        <a class="trade" href="register.html?trade=Windows%20%26%20doors"><span>Windows &amp; doors</span><span class="count num">3 firms</span></a>
+        <a class="trade" href="register.html?trade=Concrete%20%26%20hardscape"><span>Concrete &amp; hardscape</span><span class="count num">4 firms</span></a>
+        <a class="trade" href="register.html?trade=Pest%20control"><span>Pest control</span><span class="count num">3 firms</span></a>
+        <a class="trade" href="register.html?trade=Cleaning"><span>Cleaning</span><span class="count num">6 firms</span></a>
+        <a class="trade" href="register.html?trade=Smart%20home%20%26%20security"><span>Smart home &amp; security</span><span class="count num">4 firms</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="register">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="label">From the register</span>
+          <h2 class="display h2">Listed by number, not by who paid.</h2>
+        </div>
+        <p class="lede">Members see the full register with reviewer notes, reference summaries, and the site-visit report. Below, a sample of admitted firms. Contact details are visible to members only.</p>
+      </div>
+      <div class="members reveal" role="list">
+        <a class="member" href="firm.html?no=007" role="listitem"><span class="id">No. 007</span><span class="name">Owyhee Plumbing Co.</span><span class="trade-name">Plumbing · Boise, Meridian</span><span class="since">Admitted 2024 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
+        <a class="member" href="firm.html?no=012" role="listitem"><span class="id">No. 012</span><span class="name">Bench &amp; Bluff Electric</span><span class="trade-name">Electrical · Eagle, Star</span><span class="since">Admitted 2024 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
+        <a class="member" href="firm.html?no=019" role="listitem"><span class="id">No. 019</span><span class="name">Payette Roofing</span><span class="trade-name">Roofing · Nampa, Caldwell</span><span class="since">Admitted 2025 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
+        <a class="member" href="firm.html?no=023" role="listitem"><span class="id">No. 023</span><span class="name">Foothills Irrigation &amp; Turf</span><span class="trade-name">Landscape &amp; irrigation · Valley-wide</span><span class="since">Admitted 2025 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
+        <a class="member" href="firm.html?no=031" role="listitem"><span class="id">No. 031</span><span class="name">Ridenbaugh Painting</span><span class="trade-name">Painting · Boise Bench, North End</span><span class="since">Admitted 2025 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
+        <a class="member" href="firm.html?no=044" role="listitem"><span class="id">No. 044</span><span class="name">Table Rock Cabinetry</span><span class="trade-name">Remodel &amp; carpentry · Meridian, Kuna</span><span class="since">Admitted 2026</span><span class="pill">Vetted</span></a>
+      </div>
+      <div class="members-foot">
+        <p class="muted">55 more firms are visible to members.</p>
+        <a class="btn" href="register.html">Browse the register <svg class="arrow"><use href="#arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split reveal">
+      <figure class="photo ratio-45"><img src="assets/hero-foothills.webp" alt="The Treasure Valley at blue hour from the foothills, sagebrush in the foreground" loading="lazy" width="2048" height="1152"><figcaption class="cap">Above the Bench, looking west across the Valley</figcaption></figure>
+      <div class="manifesto" style="grid-template-columns:1fr">
+        <h2 class="display">We are paid by homeowners, so we answer to homeowners. No firm has ever bought its way onto this page, and none will.</h2>
+        <div class="rules">
+          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>No lead fees, referral fees, or "featured" placement. Firms pay nothing to be listed.</span></div>
+          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Nomination only. A firm gets reviewed when a current member or a listed firm puts its name forward.</span></div>
+          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Removals are published. When a firm leaves the register, members are told why.</span></div>
+          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Reviewers live here. Every site visit is done by a Guild reviewer based in the Treasure Valley.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply" id="membership">
+    <div class="gpu-bg" data-terrain="gold" aria-hidden="true"></div>
+    <div class="container">
+      <div class="flow">
+        <span class="label">Membership</span>
+        <h2 class="display h2">Two doors in. Neither is wide.</h2>
+        <p class="lede">Homeowner membership is limited to owner-occupied homes in Ada and Canyon counties and is reviewed in monthly cohorts. Business admission is by nomination, then the seven-point Standard.</p>
+      </div>
+      <div class="apply-tracks">
+        <div class="track">
+          <h3>Homeowners</h3>
+          <p>$180 a year. Full register access, reviewer notes, and a direct line to the Guild when a job goes sideways.</p>
+          <a class="btn primary" href="membership.html#apply">Apply as a homeowner <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+        <div class="track">
+          <h3>Businesses</h3>
+          <p>No fee, no shortcut. Ask a current member or listed firm to nominate you, then expect the review to take six to ten weeks.</p>
+          <a class="btn" href="membership.html#business">Request a nomination</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="col">
+      <a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+      <p>A private register of vetted home professionals for Treasure Valley homeowners.</p>
+      <p>Boise, Idaho</p>
+    </div>
+    <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a><a href="register.html#removals">Removals</a></div>
+    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
+    <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><a href="about.html">About the Guild</a><a href="about.html#press">Press</a></div>
+    <div class="legal"><span>© 2026 The HomeGuild. Not affiliated with any contractor, lender, or real estate brokerage.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+<script type="module" src="js/terrain.js"></script>
+</body>
+</html>

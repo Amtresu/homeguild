@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — The HomeGuild</title>
+<meta name="theme-color" content="#1E221F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="standard.html">The Standard</a>
+      <a href="register.html">The Register</a>
+      <a href="membership.html">Membership</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <a class="btn sm primary" href="membership.html#apply">Apply</a>
+    </div>
+  </div>
+</header>
+
+<main class="form-page">
+  <div class="container" style="grid-template-columns:minmax(0,1fr);max-width:520px">
+    <div class="flow">
+      <span class="label">Member sign in</span>
+      <h1 class="display h2">Welcome back.</h1>
+      <p class="muted">We email you a one-time link. No passwords to remember, nothing to reset.</p>
+    </div>
+    <form class="form" onsubmit="event.preventDefault(); this.hidden=true; document.getElementById('sent').classList.add('show');">
+      <div class="field"><label for="email">Email on your membership</label><input id="email" type="email" autocomplete="email" required></div>
+      <div><button class="btn primary" type="submit">Email me a sign-in link <svg class="arrow"><use href="#arrow"/></svg></button></div>
+      <p class="form-note">Not a member yet? <a class="accent" href="membership.html#apply">Apply here.</a></p>
+    </form>
+    <div class="form-success" id="sent" role="status"><span class="label">Sent</span><h2 class="display h3">Check your inbox.</h2><p class="muted">The link works for fifteen minutes.</p></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="col"><a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a><p>Boise, Idaho</p></div>
+    <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a></div>
+    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a></div>
+    <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a></div>
+    <div class="legal"><span>© 2026 The HomeGuild.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

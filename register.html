@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Register — The HomeGuild</title>
+<meta name="description" content="Every firm admitted to The HomeGuild, listed by number. Contact details and reviewer notes are visible to members.">
+<meta name="theme-color" content="#1E221F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="standard.html">The Standard</a>
+      <a href="register.html" aria-current="page">The Register</a>
+      <a href="membership.html">Membership</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <a class="btn sm ghost" href="signin.html">Sign in</a>
+      <a class="btn sm primary" href="membership.html#apply">Apply</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <span class="label">The Register · August 2026 cycle</span>
+      <h1 class="display h1" style="margin-top:14px">61 firms. Twelve trades. Listed by number.</h1>
+      <p class="lede">Numbers are assigned in order of admission and never reused. Names and trades are public; phone numbers, reviewer notes, reference summaries, and site-visit reports are visible to members.</p>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container">
+      <div class="filters" role="search">
+        <input id="q" type="search" placeholder="Search by name, trade, or town" aria-label="Search the register">
+        <select id="trade" aria-label="Filter by trade">
+          <option value="">All trades</option>
+          <option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Roofing</option>
+          <option>Landscape &amp; irrigation</option><option>Painting</option><option>Remodel &amp; carpentry</option>
+          <option>Windows &amp; doors</option><option>Concrete &amp; hardscape</option><option>Pest control</option>
+          <option>Cleaning</option><option>Smart home &amp; security</option>
+        </select>
+        <select id="town" aria-label="Filter by town">
+          <option value="">All towns</option>
+          <option>Boise</option><option>Meridian</option><option>Eagle</option><option>Star</option>
+          <option>Kuna</option><option>Nampa</option><option>Caldwell</option><option>Middleton</option>
+        </select>
+        <span class="count-out" id="countOut"></span>
+      </div>
+      <div class="members" id="registerList" role="list"></div>
+
+      <div class="gate">
+        <span class="label">Members only</span>
+        <h2 class="display h3">Contact details, reviewer notes, and site-visit reports are behind the door.</h2>
+        <p class="muted">Homeowner membership is $180 a year and reviewed in monthly cohorts.</p>
+        <div class="row"><a class="btn primary" href="membership.html#apply">Apply for membership <svg class="arrow"><use href="#arrow"/></svg></a><a class="btn" href="signin.html">Member sign in</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="removals">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="label">Removals · 2026</span>
+          <h2 class="display h2">When a firm leaves, members are told why.</h2>
+        </div>
+        <p class="lede">Three firms were removed from the register this year. The reason is published in the same words the firm received. Removed firms may be re-nominated after twelve months.</p>
+      </div>
+      <div class="timeline">
+        <div><b>Jul 2026</b><span>No. 028 — failed Step 06. A member reported a "Guild discount" that was the standard rate plus 12%. Substantiated by the estimate and invoice.</span></div>
+        <div><b>Apr 2026</b><span>No. 009 — failed Step 02. General liability lapsed for 41 days; the carrier notified us on cancellation. Reinstated coverage did not restore listing this cycle.</span></div>
+        <div><b>Feb 2026</b><span>No. 035 — failed Step 04. Ownership sold to an out-of-state group that took over scheduling and pricing.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="col"><a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a><p>A private register of vetted home professionals for Treasure Valley homeowners.</p><p>Boise, Idaho</p></div>
+    <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a><a href="register.html#removals">Removals</a></div>
+    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
+    <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><a href="about.html">About the Guild</a><a href="about.html#press">Press</a></div>
+    <div class="legal"><span>© 2026 The HomeGuild.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+  </div>
+</footer>
+
+<script>
+// Sample register data. Replace with your real list (or an API) before launch.
+window.HG_FIRMS = [
+  {no:'007',name:'Owyhee Plumbing Co.',trade:'Plumbing',towns:['Boise','Meridian'],admitted:'2024',repassed:'Aug 2026'},
+  {no:'012',name:'Bench & Bluff Electric',trade:'Electrical',towns:['Eagle','Star'],admitted:'2024',repassed:'Aug 2026'},
+  {no:'014',name:'Snake River Mechanical',trade:'HVAC',towns:['Nampa','Caldwell','Middleton'],admitted:'2024',repassed:'Aug 2026'},
+  {no:'016',name:'Bogus Basin Heating & Air',trade:'HVAC',towns:['Boise','Eagle'],admitted:'2024',repassed:'Aug 2026'},
+  {no:'019',name:'Payette Roofing',trade:'Roofing',towns:['Nampa','Caldwell'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'021',name:'Hyde Park Plumbing',trade:'Plumbing',towns:['Boise'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'023',name:'Foothills Irrigation & Turf',trade:'Landscape & irrigation',towns:['Boise','Meridian','Eagle','Star','Kuna'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'024',name:'Indian Creek Concrete',trade:'Concrete & hardscape',towns:['Caldwell','Nampa','Middleton'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'026',name:'Camel’s Back Windows',trade:'Windows & doors',towns:['Boise','Meridian'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'027',name:'Ten Mile Electric',trade:'Electrical',towns:['Meridian','Kuna'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'031',name:'Ridenbaugh Painting',trade:'Painting',towns:['Boise'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'033',name:'Lake Lowell Pest',trade:'Pest control',towns:['Nampa','Caldwell','Kuna'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'036',name:'Dry Creek Roofing',trade:'Roofing',towns:['Eagle','Star','Middleton'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'038',name:'Warm Springs Home Cleaning',trade:'Cleaning',towns:['Boise','Meridian'],admitted:'2025',repassed:'Aug 2026'},
+  {no:'040',name:'Five Mile Smart Home',trade:'Smart home & security',towns:['Boise','Meridian','Eagle'],admitted:'2026'},
+  {no:'042',name:'Linder Road Painting',trade:'Painting',towns:['Meridian','Kuna','Nampa'],admitted:'2026'},
+  {no:'044',name:'Table Rock Cabinetry',trade:'Remodel & carpentry',towns:['Meridian','Kuna'],admitted:'2026'},
+  {no:'046',name:'Harrison Blvd Remodel',trade:'Remodel & carpentry',towns:['Boise'],admitted:'2026'},
+  {no:'049',name:'Ustick Plumbing & Drain',trade:'Plumbing',towns:['Meridian','Nampa'],admitted:'2026'},
+  {no:'051',name:'Star Valley Landscape',trade:'Landscape & irrigation',towns:['Star','Middleton','Eagle'],admitted:'2026'},
+  {no:'054',name:'Cloverdale Electric',trade:'Electrical',towns:['Boise','Meridian'],admitted:'2026'},
+  {no:'058',name:'Sawtooth Window & Door',trade:'Windows & doors',towns:['Nampa','Caldwell'],admitted:'2026'},
+  {no:'060',name:'Deer Flat Cleaning',trade:'Cleaning',towns:['Nampa','Caldwell','Kuna'],admitted:'2026'},
+  {no:'061',name:'Barber Valley Carpentry',trade:'Remodel & carpentry',towns:['Boise','Eagle'],admitted:'2026',status:'review'}
+];
+// Preselect a trade from ?trade=
+(function(){ var t = new URLSearchParams(location.search).get('trade'); if (t) { var s = document.getElementById('trade'); s.value = t; } })();
+</script>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Membership — The HomeGuild</title>
+<meta name="description" content="Homeowner membership of The HomeGuild is $180 a year, reviewed in monthly cohorts. Business admission is by nomination only.">
+<meta name="theme-color" content="#1E221F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/webgpu":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/tsl":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js"}}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+  <symbol id="tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.5"/><path d="M6 10.3l2.6 2.6L14 7.5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="standard.html">The Standard</a>
+      <a href="register.html">The Register</a>
+      <a href="membership.html" aria-current="page">Membership</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <a class="btn sm ghost" href="signin.html">Sign in</a>
+      <a class="btn sm primary" href="#apply">Apply</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="min-height:auto">
+    <div class="gpu-bg" data-terrain="sage" aria-hidden="true"></div>
+    <div class="container" style="grid-template-columns:1fr">
+      <div class="hero-copy">
+        <span class="label">Membership</span>
+        <h1 class="display h1">Two doors in. Neither is wide.</h1>
+        <p class="lede">Homeowners join by application, reviewed in monthly cohorts. Firms join by nomination, then the Standard. Nobody joins by paying more.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tiers">
+        <div class="tier">
+          <span class="label">Homeowners</span>
+          <div class="price">$180<small> / year</small></div>
+          <p class="muted">Owner-occupied homes in Ada or Canyon County. Billed after acceptance — nothing is due to apply.</p>
+          <ul>
+            <li><svg><use href="#tick"/></svg><span>The full register: contact details for every admitted firm</span></li>
+            <li><svg><use href="#tick"/></svg><span>Reviewer notes, reference summaries, and site-visit reports</span></li>
+            <li><svg><use href="#tick"/></svg><span>Removal notices with the reason, as they happen</span></li>
+            <li><svg><use href="#tick"/></svg><span>A direct line to the Guild when a job goes sideways</span></li>
+            <li><svg><use href="#tick"/></svg><span>The right to nominate a firm you've used</span></li>
+          </ul>
+          <a class="btn primary" href="#apply">Apply as a homeowner <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+        <div class="tier">
+          <span class="label">Businesses</span>
+          <div class="price">$0<small> — and no way to pay</small></div>
+          <p class="muted">Firms are nominated by a member or a listed firm, then reviewed against the seven-point Standard. Six to ten weeks.</p>
+          <ul>
+            <li><svg><use href="#tick"/></svg><span>A listing that can't be bought, which is why members trust it</span></li>
+            <li><svg><use href="#tick"/></svg><span>Your register page with the reviewer's report, visible to members</span></li>
+            <li><svg><use href="#tick"/></svg><span>Members who arrive already knowing your pricing pledge</span></li>
+            <li><svg><use href="#tick"/></svg><span>Annual re-review — the listing is earned each year</span></li>
+            <li><svg><use href="#tick"/></svg><span>Per-trade caps, so you are never one of forty</span></li>
+          </ul>
+          <a class="btn" href="#business">Request a nomination</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-page" id="apply">
+    <div class="container">
+      <aside class="flow">
+        <span class="label">Application</span>
+        <h2 class="display h2">Tell us about your home. We'll take it from there.</h2>
+        <p class="lede">Most homeowners hear back within three weeks. Business nominations take six to ten weeks because the Standard takes six to ten weeks.</p>
+        <div class="aside-list">
+          <div><svg><use href="#tick"/></svg><span>Owner-occupied homes in Ada or Canyon County</span></div>
+          <div><svg><use href="#tick"/></svg><span>$180 a year, billed after acceptance — nothing due now</span></div>
+          <div><svg><use href="#tick"/></svg><span>We never share your address with listed firms</span></div>
+        </div>
+      </aside>
+
+      <form class="form" id="applyForm" novalidate>
+        <div class="choices" role="radiogroup" aria-label="I am applying as">
+          <label class="choice"><input type="radio" name="track" value="homeowner" checked><div><b>A homeowner</b><span>Full register access, reviewer notes, and Guild support.</span></div></label>
+          <label class="choice" id="business"><input type="radio" name="track" value="business"><div><b>A business seeking nomination</b><span>You'll need a current member or listed firm to put your name forward.</span></div></label>
+        </div>
+
+        <div class="two">
+          <div class="field"><label for="first">First name</label><input id="first" name="first" autocomplete="given-name" required></div>
+          <div class="field"><label for="last">Last name</label><input id="last" name="last" autocomplete="family-name" required></div>
+        </div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+
+        <div class="field only-business"><label for="firm">Firm name</label><input id="firm" name="firm" autocomplete="organization"></div>
+        <div class="two only-business">
+          <div class="field"><label for="firmTrade">Trade</label>
+            <select id="firmTrade" name="firmTrade">
+              <option value="">Choose one</option>
+              <option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Roofing</option><option>Landscape &amp; irrigation</option><option>Painting</option><option>Remodel &amp; carpentry</option><option>Windows &amp; doors</option><option>Concrete &amp; hardscape</option><option>Pest control</option><option>Cleaning</option><option>Smart home &amp; security</option>
+            </select></div>
+          <div class="field"><label for="since">Operating in the Valley since</label><input id="since" name="since" inputmode="numeric" placeholder="2011"></div>
+        </div>
+        <div class="field only-business"><label for="nominator">Who is nominating you?</label><input id="nominator" name="nominator" placeholder="A member's name or a listed firm"><span class="hint">Without a nominator we can't start a review. Ask a customer who is a member.</span></div>
+
+        <div class="two only-home">
+          <div class="field"><label for="city">City</label>
+            <select id="city" name="city">
+              <option value="">Choose one</option>
+              <option>Boise</option><option>Meridian</option><option>Eagle</option><option>Star</option><option>Kuna</option><option>Nampa</option><option>Caldwell</option><option>Middleton</option><option>Other (Ada / Canyon)</option>
+            </select></div>
+          <div class="field"><label for="zip">ZIP</label><input id="zip" name="zip" inputmode="numeric" pattern="8[3-4][0-9]{3}" autocomplete="postal-code"><span class="hint">Idaho ZIPs only</span></div>
+        </div>
+        <div class="field only-home"><label for="ref">How did you hear about the Guild?</label><input id="ref" name="ref" placeholder="A member's name, a listed firm, or somewhere else"><span class="hint">A member referral moves you to the front of the cohort.</span></div>
+        <div class="field only-home"><label for="why">What are you hoping the register solves for you?</label><textarea id="why" name="why"></textarea></div>
+
+        <div><button class="btn primary" type="submit">Submit <svg class="arrow"><use href="#arrow"/></svg></button></div>
+        <p class="form-note">By applying you agree to the Guild bylaws. We'll email you once, to confirm receipt, and again with a decision. No newsletters.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess" role="status">
+        <span class="label">Received</span>
+        <h2 class="display h3">Thank you. You're in the September cohort.</h2>
+        <p class="muted">Check your inbox for a confirmation. Decisions go out on the third Friday of the month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Questions</span><h2 class="display h2">The ones we get most.</h2></div>
+      </div>
+      <div class="faq">
+        <details><summary>Why does a homeowner pay and a firm doesn't?</summary><div class="a">Because whoever pays is who the list serves. Every other directory in the Valley is paid by contractors, so it exists to send contractors leads. We're paid by homeowners, so we exist to tell homeowners the truth.</div></details>
+        <details><summary>Is $180 a year worth it?</summary><div class="a">One avoided bad hire on a $6,000 job pays for it many times over. But the honest answer is that most members use the register two or three times a year and keep it for the removal notices — knowing when a firm they've used has stopped meeting the Standard.</div></details>
+        <details><summary>Can I rent out my home and still join?</summary><div class="a">Membership is for owner-occupied homes. Landlords and property managers have a different set of incentives and a different set of firms; we may build a register for them later, but not by diluting this one.</div></details>
+        <details><summary>What if a listed firm does a bad job for me?</summary><div class="a">Tell us. A reviewer calls you and the firm within a week. Two substantiated complaints in twelve months trigger an immediate re-review; one substantiated pricing complaint removes the firm outright.</div></details>
+        <details><summary>I run a good firm. Why can't I just apply?</summary><div class="a">Because a form is the easiest thing in the world to fill in. A nomination from someone who has paid you and would do it again is not. Ask a customer who is a member — or ask a listed firm you've worked alongside.</div></details>
+        <details><summary>Do you cover Nampa and Caldwell as well as Boise?</summary><div class="a">Yes — Ada and Canyon counties. Reviewers live on both sides of the county line, and the register is filtered by town so you can see who actually works near you.</div></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="col"><a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a><p>A private register of vetted home professionals for Treasure Valley homeowners.</p><p>Boise, Idaho</p></div>
+    <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a><a href="register.html#removals">Removals</a></div>
+    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
+    <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><a href="about.html">About the Guild</a><a href="about.html#press">Press</a></div>
+    <div class="legal"><span>© 2026 The HomeGuild.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+<script type="module" src="js/terrain.js"></script>
+</body>
+</html>
