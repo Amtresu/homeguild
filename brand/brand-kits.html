@@ -1,0 +1,292 @@
+<meta charset="utf-8">
+<title>HomeGuild Brand Kits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600&display=swap">
+<style>
+  :root {
+    --pg-bg: #F7F6F3; --pg-ink: #1C1B19; --pg-ink-2: #5E5B55; --pg-line: #DAD6CE; --pg-card: #FFFFFF;
+    --pg-font: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --pg-mono: "IBM Plex Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --pg-bg: #171716; --pg-ink: #EDEBE6; --pg-ink-2: #A5A29B; --pg-line: #2E2D2A; --pg-card: #1F1F1D; }
+  }
+  :root[data-theme="dark"] { --pg-bg: #171716; --pg-ink: #EDEBE6; --pg-ink-2: #A5A29B; --pg-line: #2E2D2A; --pg-card: #1F1F1D; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--pg-bg); color: var(--pg-ink); font-family: var(--pg-font); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { width: min(1240px, 100% - 48px); margin-inline: auto; padding: 56px 0 96px; }
+  .intro { max-width: 68ch; display: grid; gap: 14px; margin-bottom: 40px; }
+  .intro h1 { font-family: "Newsreader", Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.5vw, 54px); line-height: 1.05; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+  .intro p { color: var(--pg-ink-2); margin: 0; }
+  .eyebrow { font-family: var(--pg-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--pg-ink-2); }
+  .toc { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px; }
+  .toc a { font-size: 14px; padding: 8px 14px; border: 1px solid var(--pg-line); border-radius: 999px; color: var(--pg-ink); text-decoration: none; }
+  .toc a:hover { border-color: var(--pg-ink); }
+
+  /* --- Each kit is a self-painted world; it never reads page tokens for color --- */
+  .kit { border: 1px solid var(--pg-line); border-radius: 6px; overflow: hidden; margin-bottom: 40px; background: var(--k-bg); color: var(--k-ink); font-family: var(--k-body); }
+  .kit-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; padding: 44px 44px 36px; border-bottom: 1px solid var(--k-line); }
+  @media (max-width: 800px) { .kit-head { grid-template-columns: 1fr; } }
+  .kit .lbl { font-family: var(--k-label); font-size: 12px; letter-spacing: var(--k-track); text-transform: uppercase; color: var(--k-ink-2); font-weight: var(--k-label-w, 400); }
+  .kit h2 { font-family: var(--k-display); font-weight: var(--k-dw); letter-spacing: var(--k-dt); line-height: 1; font-size: clamp(40px, 5vw, 64px); margin: 10px 0 18px; }
+  .kit .concept { color: var(--k-ink-2); max-width: 58ch; margin: 0; }
+  .kit .concept + .concept { margin-top: 12px; }
+  .lockup { display: grid; gap: 22px; align-content: start; justify-items: start; padding: 28px; border: 1px solid var(--k-line); background: var(--k-bg-2); }
+  .lockup .mark { width: 96px; height: 96px; color: var(--k-mark); }
+  .lockup .word { font-family: var(--k-display); font-weight: var(--k-dw); letter-spacing: var(--k-dt); font-size: 36px; line-height: 1; }
+  .lockup .tag { font-family: var(--k-label); font-size: 12px; letter-spacing: var(--k-track); text-transform: uppercase; color: var(--k-ink-2); }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .cell { padding: 32px 44px 40px; border-right: 1px solid var(--k-line); display: grid; gap: 18px; align-content: start; }
+  .cell:last-child { border-right: 0; }
+  @media (max-width: 900px) { .cell { border-right: 0; border-bottom: 1px solid var(--k-line); } }
+  .swatches { display: grid; gap: 8px; }
+  .sw { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; font-size: 14px; }
+  .sw i { display: block; height: 44px; border: 1px solid var(--k-line); }
+  .sw b { font-weight: 500; }
+  .sw code { font-family: var(--k-mono, monospace); font-size: 12px; color: var(--k-ink-2); }
+  .spec { display: grid; gap: 14px; }
+  .spec .d { font-family: var(--k-display); font-weight: var(--k-dw); letter-spacing: var(--k-dt); font-size: 40px; line-height: 1; }
+  .spec .d em { color: var(--k-accent); font-style: var(--k-em, italic); }
+  .spec .b { font-size: 15px; color: var(--k-ink-2); max-width: 36ch; }
+  .spec .l { font-family: var(--k-label); font-size: 12px; letter-spacing: var(--k-track); text-transform: uppercase; color: var(--k-ink-2); font-weight: var(--k-label-w, 400); }
+  .spec small { font-size: 12px; color: var(--k-ink-2); display: block; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .kbtn { display: inline-flex; align-items: center; padding: 12px 18px; border: 1px solid var(--k-ink); border-radius: var(--k-r); font-size: 14px; font-weight: 500; color: var(--k-ink); background: transparent; font-family: var(--k-btn-font, var(--k-body)); text-transform: var(--k-btn-tt, none); letter-spacing: var(--k-btn-ls, 0); box-shadow: var(--k-btn-ring, none); }
+  .kbtn.p { background: var(--k-btn-bg); color: var(--k-btn-ink); border-color: var(--k-btn-bg); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-family: var(--k-label); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px; border: 1px solid var(--k-seal); color: var(--k-seal); border-radius: var(--k-pill-r); }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--k-seal); }
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--k-line); font-size: 14px; }
+  .row span:first-child { color: var(--k-ink-2); }
+  .voice { display: grid; gap: 10px; font-size: 15px; }
+  .voice .q { font-family: var(--k-display); font-weight: var(--k-dw); letter-spacing: var(--k-dt); font-size: 22px; line-height: 1.2; }
+  .voice p { margin: 0; color: var(--k-ink-2); }
+  .foot { padding: 24px 44px; border-top: 1px solid var(--k-line); display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 14px; }
+  @media (max-width: 800px) { .foot { grid-template-columns: 1fr; } }
+  .foot b { display: block; font-weight: 500; margin-bottom: 4px; }
+  .foot p { margin: 0; color: var(--k-ink-2); }
+
+  /* KIT A */
+  .kit-a { --k-bg: #F5F3EC; --k-bg-2: #ECE8DD; --k-ink: #1B2A3A; --k-ink-2: #4A5563; --k-line: #C9C4B8; --k-accent: #A9673B; --k-seal: #3E6B62; --k-mark: #1B2A3A;
+    --k-display: "Newsreader", Georgia, serif; --k-body: "IBM Plex Sans", system-ui, sans-serif; --k-label: "IBM Plex Mono", monospace; --k-mono: "IBM Plex Mono", monospace;
+    --k-dw: 400; --k-dt: -.01em; --k-track: .08em; --k-r: 0; --k-pill-r: 0; --k-btn-bg: #1B2A3A; --k-btn-ink: #F5F3EC; }
+  /* KIT B */
+  .kit-b { --k-bg: #1E221F; --k-bg-2: #262B27; --k-ink: #ECEAE3; --k-ink-2: #B9BCB2; --k-line: #3A413C; --k-accent: #D9A441; --k-seal: #9BA88D; --k-mark: #D9A441;
+    --k-display: "Bricolage Grotesque", "Arial Narrow", sans-serif; --k-body: "Public Sans", system-ui, sans-serif; --k-label: "Public Sans", sans-serif; --k-mono: "Public Sans", sans-serif;
+    --k-dw: 600; --k-dt: -.035em; --k-track: .14em; --k-r: 4px; --k-pill-r: 999px; --k-em: normal; --k-btn-bg: #D9A441; --k-btn-ink: #1E221F; }
+  /* KIT C */
+  .kit-c { --k-bg: #EAE4D8; --k-bg-2: #E0D8C8; --k-ink: #171411; --k-ink-2: #4B4540; --k-line: #C8BEAD; --k-accent: #7A2E2B; --k-seal: #B8944D; --k-mark: #7A2E2B;
+    --k-display: "Libre Caslon Display", "Times New Roman", serif; --k-body: "Libre Caslon Text", Georgia, serif; --k-label: "Barlow Condensed", "Arial Narrow", sans-serif; --k-mono: "Barlow Condensed", sans-serif;
+    --k-dw: 400; --k-dt: 0; --k-track: .16em; --k-label-w: 600; --k-r: 0; --k-pill-r: 0; --k-btn-bg: #171411; --k-btn-ink: #F3EDE2;
+    --k-btn-font: "Barlow Condensed", sans-serif; --k-btn-tt: uppercase; --k-btn-ls: .12em; --k-btn-ring: 0 0 0 3px #EAE4D8, 0 0 0 4px #171411; }
+  .kit-c .lbl, .kit-c .lockup .tag, .kit-c .pill { font-size: 13px; font-weight: 600; }
+
+  /* recommendation */
+  .verdict { border: 1px solid var(--pg-line); border-radius: 6px; padding: 36px 44px; background: var(--pg-card); display: grid; gap: 18px; max-width: 76ch; }
+  .verdict h2 { font-family: "Newsreader", Georgia, serif; font-weight: 400; font-size: 32px; margin: 0; line-height: 1.1; }
+  .verdict p { margin: 0; color: var(--pg-ink-2); }
+  .verdict table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .verdict th, .verdict td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--pg-line); vertical-align: top; }
+  .verdict th { font-weight: 500; color: var(--pg-ink); }
+  .tbl { overflow-x: auto; }
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <span class="eyebrow">The HomeGuild · Brand kits · August 2026</span>
+    <h1>Three ways to look like the list nobody can buy their way onto.</h1>
+    <p>The HomeGuild is a private register of vetted home professionals for Treasure Valley homeowners. Local competitors sell leads to contractors; the Guild is paid by homeowners and answers to them. Each kit below carries that reversal differently. All three are already built into the site — switch between them with the pill at the bottom of any page.</p>
+  </div>
+  <nav class="toc"><a href="#kit-a">A · The Register</a><a href="#kit-b">B · Basalt &amp; Sage</a><a href="#kit-c">C · Ironwork</a><a href="#verdict">Recommendation</a></nav>
+
+  <!-- ============ KIT A ============ -->
+  <section class="kit kit-a" id="kit-a">
+    <div class="kit-head">
+      <div>
+        <span class="lbl">Kit A</span>
+        <h2>The Register</h2>
+        <p class="concept">A civic ledger. The brand behaves like a county record book: ruled paper, ink the colour of the Boise River at depth, a copper seal for admissions and a verdigris one for "vetted". Nothing is decorated; everything is entered.</p>
+        <p class="concept">Newsreader carries the headlines at book weight, with one italic word per headline as the only flourish. IBM Plex Mono sets every number, member ID, and label — the typographic signal that this is a record, not a brochure.</p>
+      </div>
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="16" cy="16" r="14"/><path d="M8.5 17.5 16 9.5l7.5 8"/><path d="M10 22h12"/></svg>
+        <span class="word">The HomeGuild</span>
+        <span class="tag">A private register · Treasure Valley</span>
+        <span class="pill">Vetted</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="cell">
+        <span class="lbl">Palette</span>
+        <div class="swatches">
+          <div class="sw"><i style="background:#F5F3EC"></i><b>Paper</b><code>#F5F3EC</code></div>
+          <div class="sw"><i style="background:#ECE8DD"></i><b>Paper, second sheet</b><code>#ECE8DD</code></div>
+          <div class="sw"><i style="background:#1B2A3A"></i><b>River ink</b><code>#1B2A3A</code></div>
+          <div class="sw"><i style="background:#4A5563"></i><b>Ink, diluted</b><code>#4A5563</code></div>
+          <div class="sw"><i style="background:#A9673B"></i><b>Copper (accent)</b><code>#A9673B</code></div>
+          <div class="sw"><i style="background:#3E6B62"></i><b>Verdigris (vetted)</b><code>#3E6B62</code></div>
+          <div class="sw"><i style="background:#C9C4B8"></i><b>Rule</b><code>#C9C4B8</code></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Type</span>
+        <div class="spec">
+          <div><div class="d">Vetted <em>few</em></div><small>Newsreader 400 · opsz 72 · -0.01em · lh 1.02</small></div>
+          <div><div class="b">Every member has passed a seven-point review we conduct ourselves, and re-passes it every August.</div><small>IBM Plex Sans 400 · 17px · lh 1.55</small></div>
+          <div><div class="l">No. 007 · Admitted 2024</div><small>IBM Plex Mono 400 · 12px · +0.08em · uppercase</small></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Components</span>
+        <div class="btns"><span class="kbtn p">Apply for membership</span><span class="kbtn">Read the Standard</span></div>
+        <div>
+          <div class="row"><span>Applications reviewed</span><b>412</b></div>
+          <div class="row"><span>Admitted</span><b>61 (14.8%)</b></div>
+          <div class="row"><span>Removed this year</span><b>3</b></div>
+        </div>
+        <div class="voice">
+          <div class="q">"Listed by number, not by who paid."</div>
+          <p>Voice: plain, procedural, a little dry. Short declaratives. Numbers wherever a claim can be counted. Never "premium", never "curated".</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div><b>Choose this if</b><p>You want the brand to read as an institution from day one — something closer to a title company or a county clerk than a startup. Ages best of the three.</p></div>
+      <div><b>Watch for</b><p>Square corners and hairlines can feel severe on mobile; the copper italic is doing a lot of the warmth. Photography, when it arrives, should be documentary, not styled.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ KIT B ============ -->
+  <section class="kit kit-b" id="kit-b">
+    <div class="kit-head">
+      <div>
+        <span class="lbl">Kit B</span>
+        <h2>Basalt &amp; Sage</h2>
+        <p class="concept">The Valley itself. Snake River basalt for the ground, chalk for the ink, bitterbrush gold for the one thing that matters on each screen, and sage for the "vetted" mark. Contour lines of the Boise Front run behind the hero — the only ornament, and it is a map, not a pattern.</p>
+        <p class="concept">Bricolage Grotesque set tight and heavy gives the headlines a trail-sign directness; Public Sans keeps the body neutral so the grotesk stays the only loud voice. Dark-first because the register is a place you go into, not a page you skim.</p>
+      </div>
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></svg>
+        <span class="word">The HomeGuild</span>
+        <span class="tag">Treasure Valley's vetted register</span>
+        <span class="pill">Vetted</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="cell">
+        <span class="lbl">Palette</span>
+        <div class="swatches">
+          <div class="sw"><i style="background:#1E221F"></i><b>Basalt</b><code>#1E221F</code></div>
+          <div class="sw"><i style="background:#262B27"></i><b>Basalt, lifted</b><code>#262B27</code></div>
+          <div class="sw"><i style="background:#ECEAE3"></i><b>Chalk (ink)</b><code>#ECEAE3</code></div>
+          <div class="sw"><i style="background:#B9BCB2"></i><b>Chalk, diluted</b><code>#B9BCB2</code></div>
+          <div class="sw"><i style="background:#D9A441"></i><b>Bitterbrush gold (accent)</b><code>#D9A441</code></div>
+          <div class="sw"><i style="background:#9BA88D"></i><b>Sage (vetted)</b><code>#9BA88D</code></div>
+          <div class="sw"><i style="background:#3A413C"></i><b>Rule</b><code>#3A413C</code></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Type</span>
+        <div class="spec">
+          <div><div class="d">Vetted <em>few</em></div><small>Bricolage Grotesque 600 · opsz 96 · -0.035em · lh 0.96</small></div>
+          <div><div class="b">Every member has passed a seven-point review we conduct ourselves, and re-passes it every August.</div><small>Public Sans 400 · 17px · lh 1.55</small></div>
+          <div><div class="l">No. 007 · Admitted 2024</div><small>Public Sans 500 · 12px · +0.14em · uppercase</small></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Components</span>
+        <div class="btns"><span class="kbtn p">Apply for membership</span><span class="kbtn">Read the Standard</span></div>
+        <div>
+          <div class="row"><span>Applications reviewed</span><b>412</b></div>
+          <div class="row"><span>Admitted</span><b>61 (14.8%)</b></div>
+          <div class="row"><span>Removed this year</span><b>3</b></div>
+        </div>
+        <div class="voice">
+          <div class="q">"Two doors in. Neither is wide."</div>
+          <p>Voice: direct, a bit terse, proud of the place. Sentences that would fit on a trailhead sign. Comfortable saying no.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div><b>Choose this if</b><p>You want the brand to be unmistakably <i>from here</i>, and to look strong on a phone at night. Best of the three for social and for the eventual member app.</p></div>
+      <div><b>Watch for</b><p>Dark-first sites need discipline: any stock photo or bright partner logo will fight the basalt. The gold membership block is the one loud moment — keep it the only one.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ KIT C ============ -->
+  <section class="kit kit-c" id="kit-c">
+    <div class="kit-head">
+      <div>
+        <span class="lbl">Kit C</span>
+        <h2>Ironwork</h2>
+        <p class="concept">A craftsmen's guild, literally. Linen ground, forge-black ink, oxblood for the accent, brass for the seal. The mark is a gable with a keyhole in it: a house you need a key for. Buttons wear a double rule, like a stamped plate.</p>
+        <p class="concept">Libre Caslon at display and text sizes is the only fully-serif kit — the body reads like a bound bylaws book. Barlow Condensed does the labels and buttons in hard uppercase, the way a maker's mark is struck into metal.</p>
+      </div>
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 15 16 5l11 10v13H5z"/><circle cx="16" cy="16" r="2.4" fill="currentColor" stroke="none"/><path d="M14.6 18.2h2.8L18.4 24h-4.8z" fill="currentColor" stroke="none"/></svg>
+        <span class="word">The HomeGuild</span>
+        <span class="tag">Est. Boise · By nomination only</span>
+        <span class="pill">Vetted</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="cell">
+        <span class="lbl">Palette</span>
+        <div class="swatches">
+          <div class="sw"><i style="background:#EAE4D8"></i><b>Linen</b><code>#EAE4D8</code></div>
+          <div class="sw"><i style="background:#E0D8C8"></i><b>Linen, second layer</b><code>#E0D8C8</code></div>
+          <div class="sw"><i style="background:#171411"></i><b>Forge black</b><code>#171411</code></div>
+          <div class="sw"><i style="background:#4B4540"></i><b>Iron</b><code>#4B4540</code></div>
+          <div class="sw"><i style="background:#7A2E2B"></i><b>Oxblood (accent)</b><code>#7A2E2B</code></div>
+          <div class="sw"><i style="background:#B8944D"></i><b>Brass (vetted)</b><code>#B8944D</code></div>
+          <div class="sw"><i style="background:#C8BEAD"></i><b>Rule</b><code>#C8BEAD</code></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Type</span>
+        <div class="spec">
+          <div><div class="d">Vetted <em>few</em></div><small>Libre Caslon Display 400 · 0 tracking · lh 1.04</small></div>
+          <div><div class="b">Every member has passed a seven-point review we conduct ourselves, and re-passes it every August.</div><small>Libre Caslon Text 400 · 17.5px · lh 1.6</small></div>
+          <div><div class="l">No. 007 · Admitted 2024</div><small>Barlow Condensed 600 · 14px · +0.16em · uppercase</small></div>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="lbl">Components</span>
+        <div class="btns"><span class="kbtn p">Apply for membership</span><span class="kbtn">Read the Standard</span></div>
+        <div>
+          <div class="row"><span>Applications reviewed</span><b>412</b></div>
+          <div class="row"><span>Admitted</span><b>61 (14.8%)</b></div>
+          <div class="row"><span>Removed this year</span><b>3</b></div>
+        </div>
+        <div class="voice">
+          <div class="q">"No firm has ever bought its way onto this page."</div>
+          <p>Voice: formal, slightly old-fashioned, unapologetic. Full sentences. "Firm", "admitted", "nomination", "bylaws". Reads like it was written by the people who will call your references.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div><b>Choose this if</b><p>You want to lean hard into "guild" — heritage, craft, a membership card people would keep in a wallet. Strongest for print, signage, and the physical seal on a member's door.</p></div>
+      <div><b>Watch for</b><p>An all-serif body is the least neutral choice and the slowest to read on small screens. Oxblood and brass together can tip toward "steakhouse" if photography goes warm; keep imagery cool and grey.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ VERDICT ============ -->
+  <section class="verdict" id="verdict">
+    <span class="eyebrow">Recommendation</span>
+    <h2>Go with A, and borrow B's contour lines for the member app later.</h2>
+    <p>The Register is the only kit whose every choice restates the business model: it looks like a record because it is one. It gives you the institutional trust an application-only product needs on day one, and its warmth comes from the type rather than from colour, so it will survive whatever photography you end up with. Basalt &amp; Sage is the better-looking screenshot and the right call if the brand will live mostly on phones and social. Ironwork is the most distinctive but the hardest to keep from tipping into costume.</p>
+    <div class="tbl">
+      <table>
+        <tr><th>&nbsp;</th><th>A · The Register</th><th>B · Basalt &amp; Sage</th><th>C · Ironwork</th></tr>
+        <tr><td>Reads as</td><td>Institution / record</td><td>Place / outdoors</td><td>Craft / heritage</td></tr>
+        <tr><td>Best surface</td><td>Web, letters, reports</td><td>Mobile, social, app</td><td>Print, signage, seals</td></tr>
+        <tr><td>Photography needed</td><td>Little; documentary</td><td>Some; landscape, cool</td><td>Careful; grey, matte</td></tr>
+        <tr><td>Risk</td><td>Severe on mobile</td><td>Dark-mode discipline</td><td>Costume drift</td></tr>
+        <tr><td>Fonts (Google)</td><td>Newsreader, IBM Plex Sans, IBM Plex Mono</td><td>Bricolage Grotesque, Public Sans</td><td>Libre Caslon Display/Text, Barlow Condensed</td></tr>
+      </table>
+    </div>
+    <p>Preview any kit on the built site: open <code>site/index.html</code> and use the switcher, or append <code>#kit=basalt</code> / <code>#kit=ironwork</code> to the URL.</p>
+  </section>
+</div>
