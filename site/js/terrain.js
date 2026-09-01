@@ -14,9 +14,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 // Four octaves of 3D noise; z is time so the field breathes instead of scrolling.
 const fbm = Fn(([p, t]) => {
   const n1 = mx_noise_float(vec3(p, t));
-  const n2 = mx_noise_float(vec3(p.mul(2.03).add(vec2(17.1, 9.7)), t.mul(1.3))).mul(0.5);
-  const n3 = mx_noise_float(vec3(p.mul(4.11).add(vec2(3.3, 41.2)), t.mul(1.7))).mul(0.25);
-  const n4 = mx_noise_float(vec3(p.mul(8.07).add(vec2(71.9, 5.5)), t.mul(2.1))).mul(0.125);
+  const n2 = mx_noise_float(vec3(p.mul(2.03).add(vec2(17.1, 9.7)), t.mul(1.15))).mul(0.5);
+  const n3 = mx_noise_float(vec3(p.mul(4.11).add(vec2(3.3, 41.2)), t.mul(1.3))).mul(0.2);
+  const n4 = mx_noise_float(vec3(p.mul(8.07).add(vec2(71.9, 5.5)), t.mul(1.45))).mul(0.07);
   return n1.add(n2).add(n3).add(n4).mul(0.5).add(0.5); // ~0..1
 });
 
@@ -24,13 +24,13 @@ export async function mountTerrain(host, opts = {}) {
   const o = Object.assign({
     line: '#9BA88D',        // sage
     accent: '#D9A441',      // bitterbrush gold
-    lineAlpha: 0.55,
-    accentAlpha: 0.9,
-    levels: 16,             // contour interval count
-    scale: 2.2,             // noise frequency
-    speed: 0.045,
+    lineAlpha: 0.32,
+    accentAlpha: 0.55,
+    levels: 12,             // contour interval count
+    scale: 1.9,             // noise frequency
+    speed: 0.022,
     accentLevel: 9,         // which contour gets the gold
-    parallax: 0.06,
+    parallax: 0.04,
     maxDpr: 1.5
   }, opts);
 
@@ -64,13 +64,13 @@ export async function mountTerrain(host, opts = {}) {
       .add(uPointer.mul(o.parallax))
       .add(vec2(uTime.mul(0.03), uTime.mul(0.017)));
 
-    const h = fbm(p, uTime.mul(0.35));
+    const h = fbm(p, uTime.mul(0.25));
 
     // Contour lines: distance to nearest level in screen-space units so width is constant.
     const lv = h.mul(o.levels);
     const f = fract(lv);
     const dist = min(f, float(1).sub(f)).div(fwidth(lv).add(1e-4));
-    const line = float(1).sub(smoothstep(0.0, 1.4, dist));
+    const line = float(1).sub(smoothstep(0.0, 1.6, dist));
 
     // Every 4th line slightly heavier — index contours, like a real quad sheet.
     const idx = floor(lv);
@@ -78,13 +78,13 @@ export async function mountTerrain(host, opts = {}) {
     const isAccent = abs(idx.sub(o.accentLevel)).lessThan(0.5);
 
     // Fade lines out toward the "low" ground so the field has depth.
-    const depth = smoothstep(0.15, 0.85, h);
+    const depth = smoothstep(0.15, 0.85, h).mul(0.9);
 
     // Page-load reveal sweeps from the left.
     const reveal = smoothstep(uv().x.sub(0.35), uv().x.add(0.05), uReveal);
 
     const baseA = line.mul(o.lineAlpha).mul(mix(0.35, 1.0, depth));
-    const indexA = mix(baseA, baseA.mul(1.6), float(isIndex));
+    const indexA = mix(baseA, baseA.mul(1.35), float(isIndex));
     const col = mix(vec3(lineColor.r, lineColor.g, lineColor.b), vec3(accentColor.r, accentColor.g, accentColor.b), float(isAccent));
     const a = mix(indexA, line.mul(o.accentAlpha), float(isAccent)).mul(reveal);
 
@@ -148,7 +148,7 @@ export async function boot() {
     try {
       const preset = host.dataset.terrain;
       const opts = preset === 'gold'
-        ? { line: '#1E221F', accent: '#1E221F', lineAlpha: 0.5, accentAlpha: 0.5, levels: 12, scale: 1.6, parallax: 0.03 }
+        ? { line: '#1E221F', accent: '#1E221F', lineAlpha: 0.4, accentAlpha: 0.4, levels: 10, scale: 1.5, parallax: 0.03 }
         : {};
       await mountTerrain(host, opts);
     } catch (err) {
