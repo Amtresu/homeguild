@@ -104,16 +104,20 @@ function renderMap(parcel) {
 
 $('toTier').addEventListener('click', e => {
   e.preventDefault();
-  reveal($('step-tier'));
+  // Monthly is the default door: open the priced list straight away, with the chooser
+  // still above it so Free and Managed are one tap away.
+  chooseTier(state.tier || 'monthly', { scrollTo: $('step-tier') });
 });
 
 // ---------- Step 3: tier ----------
 const TIER_PANELS = { free: 'step-free', monthly: 'step-services', managed: 'step-managed' };
 document.querySelectorAll('[data-tier]').forEach(btn => btn.addEventListener('click', () => chooseTier(btn.dataset.tier)));
-function chooseTier(tier) {
+function chooseTier(tier, { scrollTo } = {}) {
   state.tier = tier; save();
+  $('step-tier').hidden = false;
+  document.querySelectorAll('[data-tier]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tier === tier)));
   for (const [t, id] of Object.entries(TIER_PANELS)) $(id).hidden = t !== tier;
-  reveal($(TIER_PANELS[tier]));
+  reveal(scrollTo || $(TIER_PANELS[tier]));
 }
 
 // ---------- Step 4 (free / managed): lead forms ----------
@@ -229,7 +233,10 @@ function restore() {
     Object.assign(state, s);
     $('address').value = state.address;
     showLot();
-    if (state.tier) { $('step-tier').hidden = false; $(TIER_PANELS[state.tier]).hidden = false; }
+    if (state.tier) {
+      $('step-tier').hidden = false; $(TIER_PANELS[state.tier]).hidden = false;
+      document.querySelectorAll('[data-tier]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tier === state.tier)));
+    }
   } catch {}
 }
 function reveal(el) {
