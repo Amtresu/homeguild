@@ -1,0 +1,12 @@
+{
+  "name": "homeguild",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "test:measure": "node scripts/check-measure.mjs"
+  },
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}

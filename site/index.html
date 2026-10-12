@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=10">
+<link rel="stylesheet" href="css/house.css?v=6">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/webgpu":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/tsl":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js"}}</script>
 </head>
 <body>
@@ -26,19 +27,19 @@
     <nav class="nav-links" id="navLinks" aria-label="Primary">
       <a href="standard.html">The Standard</a>
       <a href="register.html">The Register</a>
-      <a href="membership.html">Membership</a>
+      <a href="membership.html">Plans</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
       <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
       <a class="btn sm ghost" href="signin.html">Sign in</a>
-      <a class="btn sm primary" href="membership.html#apply">Apply</a>
+      <a class="btn sm" href="#heroAddress" data-focus="heroAddress">Get a quote</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero hero-split">
     <div class="gpu-bg" data-terrain="sage" aria-hidden="true">
       <svg class="contours" viewBox="0 0 1440 700" preserveAspectRatio="none" fill="none" stroke="#9BA88D" stroke-width="1">
         <path d="M0 520C180 480 260 410 420 420S700 520 900 470s340-150 540-120"/>
@@ -50,110 +51,109 @@
       </svg>
     </div>
     <div class="container">
-      <div class="hero-copy">
-        <span class="label">A private register · Treasure Valley, Idaho</span>
-        <h1 class="display h1">The Valley's vetted few, on <em>one</em> list.</h1>
-        <p class="lede">The HomeGuild is a members-only register of home professionals — plumbers to painters, roofers to remodelers — each admitted after a seven-point review we conduct ourselves. Homeowners in Ada and Canyon counties join by application. Businesses join by nomination only.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="membership.html#apply">Apply for membership <svg class="arrow"><use href="#arrow"/></svg></a>
-          <a class="btn" href="standard.html">Read the Standard</a>
-        </div>
-        <p class="hero-note">Boise · Meridian · Eagle · Star · Kuna · Nampa · Caldwell · Middleton</p>
-      </div>
-
-      <aside class="register-card" aria-label="Register summary">
-        <div class="top">
-          <div>
-            <span class="label">Register status</span>
-            <div class="big num">61 firms</div>
-          </div>
-          <svg class="seal" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <circle cx="48" cy="48" r="45"/>
-            <circle cx="48" cy="48" r="38" stroke-dasharray="2 3"/>
-            <path d="M28 58l10-16 6 8 5-11 9 19" stroke-width="2"/>
-            <path id="sealArc" d="M48 14a34 34 0 1 1-.01 0" fill="none" stroke="none"/>
-            <text font-size="7.5" letter-spacing="1.5" fill="currentColor" stroke="none"><textPath href="#sealArc" startOffset="6%">VETTED · TREASURE VALLEY · MMXXVI ·</textPath></text>
+      <h1 class="display h1">The Treasure Valley’s vetted contractors, <em>on call.</em></h1>
+      <form class="hero-panel" action="quote.html" method="get" id="heroForm">
+        <figure class="parcel-preview" aria-label="Example: a measured North End lot">
+          <img src="assets/parcel-preview.webp" alt="Satellite view of a Boise North End block with one lot outlined in gold" width="1024" height="640" fetchpriority="high">
+          <svg viewBox="0 0 1024 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <polygon class="lot" points="641.4,236.4 641.4,406.7 382.6,405.1 382.6,234.8"/>
+            <line class="tick" x1="382.6" y1="212.3" x2="641.4" y2="212.3"/>
+            <text x="512.0" y="200.3" text-anchor="middle">122 ft</text>
+            <line class="tick" x1="662.6" y1="234.8" x2="662.6" y2="406.7"/>
+            <text x="680.7" y="320.8" dominant-baseline="middle">80 ft</text>
           </svg>
+          <figcaption>
+            <span class="num">9,583 sq ft lot</span>
+            <span>No. R2343000080 · North End, Boise</span>
+            <span class="src">Ada County Assessor · imagery Esri</span>
+          </figcaption>
+        </figure>
+        <label class="field-label" for="heroAddress">Your street address</label>
+        <div class="hero-field">
+          <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <input id="heroAddress" name="address" type="text" required minlength="6" placeholder="1601 N 13th St, Boise" autocomplete="street-address" spellcheck="false">
         </div>
-        <div class="row"><span class="muted">Applications reviewed</span><b class="num">412</b></div>
-        <div class="row"><span class="muted">Admitted</span><b class="num">61 (14.8%)</b></div>
-        <div class="row"><span class="muted">Removed this year</span><b class="num">3</b></div>
-        <div class="row"><span class="muted">Trades covered</span><b class="num">12</b></div>
-        <div class="row"><span class="muted">Last review cycle</span><b>August 2026</b></div>
-      </aside>
+        <button class="btn primary" type="submit" data-busy="Measuring your lot…">Measure my property <svg class="arrow"><use href="#arrow"/></svg></button>
+      </form>
+      <p class="lede">We’ve called their references, walked their finished work, and hold their insurance on file. Join free for member rates, go monthly and we handle the dispatch, or hand us the whole house.</p>
     </div>
   </section>
 
-  <div class="strip">
+  <section class="section textured" id="how">
     <div class="container">
-      <div class="stat"><span class="label">Reference calls made</span><span class="v num">1,236</span></div>
-      <div class="stat"><span class="label">Site visits completed</span><span class="v num">188</span></div>
-      <div class="stat"><span class="label">Avg. years in the Valley</span><span class="v num">11.4</span></div>
-      <div class="stat"><span class="label">Member homes served</span><span class="v num">2,900+</span></div>
+      <div class="section-head reveal">
+        <h2 class="display h2">Three ways in. All of them start with your address.</h2>
+        <p class="lede">Every firm in the network passed the same seven-point Standard. The plans differ only in how much of your house you want us to carry.</p>
+      </div>
+      <ol class="steps reveal" id="membership">
+        <li class="step">
+          <span class="n">01</span>
+          <h3>Free · member rates</h3>
+          <p>Join with your address and email. When something needs doing, tell us; a vetted firm for that trade calls you at member rates. No card, no monthly fee.</p>
+        </li>
+        <li class="step">
+          <span class="n">02</span>
+          <h3>Monthly · white-glove dispatch</h3>
+          <p>One number to text for anything — a leak, a dead outlet, a hail-damaged roof. We put the right vetted firm on it and stay on it until it’s done. Recurring exterior services priced for your lot, if you want them.</p>
+        </li>
+        <li class="step">
+          <span class="n">03</span>
+          <h3>Managed · your property, our calendar</h3>
+          <p>We act as the property manager for your home: the year’s plan, every visit scheduled and inspected, one point of contact, one monthly bill. Quoted after a walk-through.</p>
+        </li>
+      </ol>
+      <div class="hero-actions" style="margin-top:28px">
+        <a class="btn primary" href="#heroAddress" data-focus="heroAddress">Start with my address <svg class="arrow"><use href="#arrow"/></svg></a>
+        <a class="btn" href="membership.html">Compare the plans</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="photo-band" aria-label="From recent site visits">
-    <figure class="photo"><img src="assets/carpenter.webp" alt="A carpenter fitting a hardwood cabinet door" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 044 · Table Rock Cabinetry · Site visit, July 2026</figcaption></figure>
-    <figure class="photo"><img src="assets/roofers.webp" alt="Two roofers on a ranch-house roof with the valley behind" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 019 · Payette Roofing · Site visit, June 2026</figcaption></figure>
-    <figure class="photo"><img src="assets/site-visit.webp" alt="A Guild reviewer with a clipboard and a homeowner looking at a new paver patio" loading="lazy" width="2016" height="1344"><figcaption class="cap">Step 05 · A reviewer walks a finished hardscape with the homeowner</figcaption></figure>
-  </div>
+  <section class="section house-section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="display h2">Everything we take care of, on one house.</h2>
+        <p class="lede">Tap a gold point. Prices shown are for a 9,583 sq ft North End lot; yours are measured from your own parcel.</p>
+      </div>
+      <div class="house-grid">
+        <div class="house-stage">
+          <div id="house" class="house-canvas" aria-label="Interactive 3D house with service hotspots"></div>
+          <p class="house-hint">Drag to turn · tap a point</p>
+        </div>
+        <aside class="house-panel" id="housePanel" hidden></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="photo-band" aria-label="From recent site visits">
+    <figure class="photo"><img src="assets/carpenter.webp?v=2" alt="A finish carpenter checking a white-oak cabinet door with a level" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 044 · Table Rock Cabinetry · Site visit, July 2026</figcaption></figure>
+    <figure class="photo"><img src="assets/roofers.webp?v=2" alt="Two roofers shingling a ranch-house roof with the Boise foothills behind" loading="lazy" width="2016" height="1344"><figcaption class="cap">No. 019 · Payette Roofing · Site visit, June 2026</figcaption></figure>
+    <figure class="photo"><img src="assets/site-visit.webp?v=2" alt="A Guild reviewer with a tablet and a homeowner walking a new paver patio" loading="lazy" width="2016" height="1344"><figcaption class="cap">Site visit · A Guild reviewer walks a finished hardscape with the homeowner</figcaption></figure>
+  </section>
 
   <section class="section" id="standard">
     <div class="container">
       <div class="section-head reveal">
-        <div>
-          <span class="label">The Standard</span>
-          <h2 class="display h2">Seven checks. In order. Every year.</h2>
-        </div>
-        <p class="lede">Most directories sell a badge to whoever pays. We don't sell placement. A firm passes each of these in sequence or it doesn't appear — and it re-passes all seven every August. <a href="standard.html" class="accent">Read the full Standard →</a></p>
+        <h2 class="display h2">Seven checks. In order. Every year.</h2>
+        <p class="lede">Most directories sell a badge to whoever pays. We don't sell placement. A firm passes each of these in sequence or it doesn't appear — and re-passes all seven every August. <a href="standard.html" class="accent">Read the full Standard →</a></p>
       </div>
-      <ol class="steps reveal" aria-label="The seven-point standard">
-        <li class="step"><span class="n">01</span><h3>License &amp; registration</h3><p>Verified directly against Idaho DOPL and the Contractor Registration record — not a screenshot from the applicant.</p></li>
-        <li class="step"><span class="n">02</span><h3>Insurance on file</h3><p>Current general liability and, where crews are employed, workers' compensation certificates held by us, renewed on expiry.</p></li>
-        <li class="step"><span class="n">03</span><h3>Three homeowner references, called</h3><p>We phone each one. We ask what went wrong, not just what went right, and how it was handled.</p></li>
-        <li class="step"><span class="n">04</span><h3>Five years operating in the Valley</h3><p>Established here, with a local address and a track record that predates the boom. No pop-up franchises.</p></li>
-        <li class="step"><span class="n">05</span><h3>A site visit to finished work</h3><p>A Guild reviewer walks a completed job, unannounced to the crew, with the homeowner present.</p></li>
-        <li class="step"><span class="n">06</span><h3>Pricing transparency pledge</h3><p>Written estimates, itemized change orders, and no member-only "referral fees" hidden in the quote. Ever.</p></li>
-        <li class="step"><span class="n">07</span><h3>Annual re-review</h3><p>Steps one through six, again, every year. Two substantiated member complaints trigger an immediate review.</p></li>
+      <ol class="checks reveal" aria-label="The seven-point standard">
+        <li><b>1</b><span>License &amp; registration, verified with DOPL</span></li>
+        <li><b>2</b><span>Insurance certificates held by us</span></li>
+        <li><b>3</b><span>Three homeowner references, called</span></li>
+        <li><b>4</b><span>Five years operating in the Valley</span></li>
+        <li><b>5</b><span>A site visit to finished work</span></li>
+        <li><b>6</b><span>Pricing transparency pledge</span></li>
+        <li><b>7</b><span>Annual re-review of all six</span></li>
       </ol>
-    </div>
-  </section>
-
-  <section class="section" id="trades">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <span class="label">Trades on the register</span>
-          <h2 class="display h2">Twelve trades. A handful of firms in each.</h2>
-        </div>
-        <p class="lede">We cap admissions per trade so every firm listed is one we'd give a neighbor without caveats. Counts show admitted firms as of the August 2026 cycle.</p>
-      </div>
-      <div class="trades reveal">
-        <a class="trade" href="register.html?trade=Plumbing"><span>Plumbing</span><span class="count num">6 firms</span></a>
-        <a class="trade" href="register.html?trade=HVAC"><span>HVAC</span><span class="count num">5 firms</span></a>
-        <a class="trade" href="register.html?trade=Electrical"><span>Electrical</span><span class="count num">6 firms</span></a>
-        <a class="trade" href="register.html?trade=Roofing"><span>Roofing</span><span class="count num">4 firms</span></a>
-        <a class="trade" href="register.html?trade=Landscape%20%26%20irrigation"><span>Landscape &amp; irrigation</span><span class="count num">7 firms</span></a>
-        <a class="trade" href="register.html?trade=Painting"><span>Painting</span><span class="count num">5 firms</span></a>
-        <a class="trade" href="register.html?trade=Remodel%20%26%20carpentry"><span>Remodel &amp; carpentry</span><span class="count num">8 firms</span></a>
-        <a class="trade" href="register.html?trade=Windows%20%26%20doors"><span>Windows &amp; doors</span><span class="count num">3 firms</span></a>
-        <a class="trade" href="register.html?trade=Concrete%20%26%20hardscape"><span>Concrete &amp; hardscape</span><span class="count num">4 firms</span></a>
-        <a class="trade" href="register.html?trade=Pest%20control"><span>Pest control</span><span class="count num">3 firms</span></a>
-        <a class="trade" href="register.html?trade=Cleaning"><span>Cleaning</span><span class="count num">6 firms</span></a>
-        <a class="trade" href="register.html?trade=Smart%20home%20%26%20security"><span>Smart home &amp; security</span><span class="count num">4 firms</span></a>
-      </div>
     </div>
   </section>
 
   <section class="section" id="register">
     <div class="container">
       <div class="section-head reveal">
-        <div>
-          <span class="label">From the register</span>
-          <h2 class="display h2">Listed by number, not by who paid.</h2>
-        </div>
-        <p class="lede">Members see the full register with reviewer notes, reference summaries, and the site-visit report. Below, a sample of admitted firms. Contact details are visible to members only.</p>
+        <h2 class="display h2">Listed by number, not by who paid.</h2>
+        <p class="lede">Sixty-one firms across twelve trades, capped per trade so every one is a firm we'd give a neighbor without caveats. Members see reviewer notes, reference summaries, and the site-visit report for each.</p>
       </div>
       <div class="members reveal" role="list">
         <a class="member" href="firm.html?no=007" role="listitem"><span class="id">No. 007</span><span class="name">Owyhee Plumbing Co.</span><span class="trade-name">Plumbing · Boise, Meridian</span><span class="since">Admitted 2024 · Re-passed Aug 2026</span><span class="pill">Vetted</span></a>
@@ -172,11 +172,11 @@
 
   <section class="section">
     <div class="container split reveal">
-      <figure class="photo ratio-45"><img src="assets/hero-foothills.webp" alt="The Treasure Valley at blue hour from the foothills, sagebrush in the foreground" loading="lazy" width="2048" height="1152"><figcaption class="cap">Above the Bench, looking west across the Valley</figcaption></figure>
+      <figure class="photo ratio-45"><img src="assets/hero-foothills.webp?v=2" alt="The Treasure Valley from the Boise foothills in late-afternoon light, sagebrush and basalt in the foreground" loading="lazy" width="2048" height="1152"><figcaption class="cap">Above the Bench, looking south across the Valley</figcaption></figure>
       <div class="manifesto" style="grid-template-columns:1fr">
-        <h2 class="display">We are paid by homeowners, so we answer to homeowners. No firm has ever bought its way onto this page, and none will.</h2>
+        <h2 class="display">No firm can buy its way into this network. Firms pay us for the introduction, never for the listing — and the Standard decides who gets introduced.</h2>
         <div class="rules">
-          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>No lead fees, referral fees, or "featured" placement. Firms pay nothing to be listed.</span></div>
+          <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>No "featured" placement and no way to pay for position. A firm is on the register because it passed, and stays only while it keeps passing.</span></div>
           <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Nomination only. A firm gets reviewed when a current member or a listed firm puts its name forward.</span></div>
           <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Removals are published. When a firm leaves the register, members are told why.</span></div>
           <div class="rule"><svg class="tick"><use href="#tick"/></svg><span>Reviewers live here. Every site visit is done by a Guild reviewer based in the Treasure Valley.</span></div>
@@ -185,26 +185,19 @@
     </div>
   </section>
 
-  <section class="apply" id="membership">
+  <section class="apply closer" id="start">
     <div class="gpu-bg" data-terrain="gold" aria-hidden="true"></div>
-    <div class="container">
-      <div class="flow">
-        <span class="label">Membership</span>
-        <h2 class="display h2">Two doors in. Neither is wide.</h2>
-        <p class="lede">Homeowner membership is limited to owner-occupied homes in Ada and Canyon counties and is reviewed in monthly cohorts. Business admission is by nomination, then the seven-point Standard.</p>
-      </div>
-      <div class="apply-tracks">
-        <div class="track">
-          <h3>Homeowners</h3>
-          <p>$180 a year. Full register access, reviewer notes, and a direct line to the Guild when a job goes sideways.</p>
-          <a class="btn primary" href="membership.html#apply">Apply as a homeowner <svg class="arrow"><use href="#arrow"/></svg></a>
+    <div class="container stack">
+      <form class="hero-form reveal" action="quote.html" method="get" id="closerForm">
+        <h2 class="display h2">Your address is the whole application.</h2>
+        <label class="field-label" for="closerAddress">Street address</label>
+        <div class="address-bar">
+          <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <input id="closerAddress" name="address" type="text" required minlength="6" placeholder="1601 N 13th St, Boise" autocomplete="street-address" spellcheck="false">
+          <button class="btn primary" type="submit" data-busy="Measuring…">Measure my property <svg class="arrow"><use href="#arrow"/></svg></button>
         </div>
-        <div class="track">
-          <h3>Businesses</h3>
-          <p>No fee, no shortcut. Ask a current member or listed firm to nominate you, then expect the review to take six to ten weeks.</p>
-          <a class="btn" href="membership.html#business">Request a nomination</a>
-        </div>
-      </div>
+        <p class="hero-note">Ada and Canyon counties. Free to look.</p>
+      </form>
     </div>
   </section>
 </main>
@@ -217,13 +210,14 @@
       <p>Boise, Idaho</p>
     </div>
     <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a><a href="register.html#removals">Removals</a></div>
-    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
+    <div class="col"><span class="label">Plans</span><a href="membership.html">Compare plans</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
     <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><a href="about.html">About the Guild</a><a href="about.html#press">Press</a></div>
-    <div class="legal"><span>© 2026 The HomeGuild. Not affiliated with any contractor, lender, or real estate brokerage.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+    <div class="legal"><span>© 2026 The HomeGuild. Not affiliated with any contractor, lender, or real estate brokerage.</span><span>Boise, Idaho</span></div>
   </div>
 </footer>
 
-<script src="js/site.js"></script>
-<script type="module" src="js/terrain.js"></script>
+<script src="js/site.js?v=3"></script>
+<script type="module" src="js/terrain.js?v=4"></script>
+<script type="module" src="js/house.js?v=12"></script>
 </body>
 </html>

@@ -9,8 +9,39 @@
     toggle.addEventListener('click', function () {
       var open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Close' : 'Menu';
     });
   }
+
+  // --- Address forms (home page): trim, show a measuring state, hand off to quote.html
+  document.querySelectorAll('form[action="quote.html"]').forEach(function (f) {
+    var input = f.querySelector('input[name="address"]');
+    var btn = f.querySelector('button[type="submit"]');
+    if (!input || !btn) return;
+    input.addEventListener('input', function () { input.setCustomValidity(''); });
+    f.addEventListener('submit', function (e) {
+      input.value = input.value.trim();
+      if (input.value.length < 6) {
+        e.preventDefault();
+        input.setCustomValidity('Enter a street address and city, e.g. 1601 N 13th St, Boise.');
+        input.reportValidity();
+        return;
+      }
+      btn.classList.add('busy');
+      btn.firstChild.textContent = (btn.dataset.busy || 'Measuring…') + ' ';
+    });
+  });
+
+  // --- "Get a quote" links on the home page focus the hero field instead of leaving
+  document.querySelectorAll('[data-focus]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var el = document.getElementById(a.dataset.focus);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(function () { el.focus({ preventScroll: true }); }, reduce ? 0 : 350);
+    });
+  });
 
   // --- Scroll reveal
   var els = document.querySelectorAll('.reveal');

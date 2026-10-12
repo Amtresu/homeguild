@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Membership — The HomeGuild</title>
+<title>Plans — The HomeGuild</title>
 <meta name="description" content="Homeowner membership of The HomeGuild is $180 a year, reviewed in monthly cohorts. Business admission is by nomination only.">
 <meta name="theme-color" content="#1E221F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=10">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/webgpu":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js","three/tsl":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js"}}</script>
 </head>
 <body>
@@ -25,13 +25,13 @@
     <nav class="nav-links" id="navLinks" aria-label="Primary">
       <a href="standard.html">The Standard</a>
       <a href="register.html">The Register</a>
-      <a href="membership.html" aria-current="page">Membership</a>
+      <a href="membership.html" aria-current="page">Plans</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
       <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
       <a class="btn sm ghost" href="signin.html">Sign in</a>
-      <a class="btn sm primary" href="#apply">Apply</a>
+      <a class="btn sm primary" href="quote.html">Get a quote</a>
     </div>
   </div>
 </header>
@@ -41,30 +41,52 @@
     <div class="gpu-bg" data-terrain="sage" aria-hidden="true"></div>
     <div class="container" style="grid-template-columns:1fr">
       <div class="hero-copy">
-        <span class="label">Membership</span>
-        <h1 class="display h1">Two doors in. Neither is wide.</h1>
-        <p class="lede">Homeowners join by application, reviewed in monthly cohorts. Firms join by nomination, then the Standard. Nobody joins by paying more.</p>
+        <span class="label">Plans</span>
+        <h1 class="display h1">Three ways in for homeowners. One for firms.</h1>
+        <p class="lede">Start with your address — we measure the lot from county records and price from there. Firms join by nomination, then the Standard. Nobody joins by paying more.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="tiers">
+      <div class="tiers three">
         <div class="tier">
-          <span class="label">Homeowners</span>
-          <div class="price">$180<small> / year</small></div>
-          <p class="muted">Owner-occupied homes in Ada or Canyon County. Billed after acceptance — nothing is due to apply.</p>
+          <span class="label">Free</span>
+          <div class="price">$0<small> — member rates, no monthly fee</small></div>
+          <p class="muted">Join with your address and email. When something needs doing, tell us and a vetted firm for that trade calls you at member rates.</p>
           <ul>
-            <li><svg><use href="#tick"/></svg><span>The full register: contact details for every admitted firm</span></li>
-            <li><svg><use href="#tick"/></svg><span>Reviewer notes, reference summaries, and site-visit reports</span></li>
-            <li><svg><use href="#tick"/></svg><span>Removal notices with the reason, as they happen</span></li>
-            <li><svg><use href="#tick"/></svg><span>A direct line to the Guild when a job goes sideways</span></li>
-            <li><svg><use href="#tick"/></svg><span>The right to nominate a firm you've used</span></li>
+            <li><svg><use href="#tick"/></svg><span>Member rates from every firm on the register</span></li>
+            <li><svg><use href="#tick"/></svg><span>At most two firms contact you per job — never a list of forty</span></li>
+            <li><svg><use href="#tick"/></svg><span>No card, no monthly fee, no obligation</span></li>
           </ul>
-          <a class="btn primary" href="#apply">Apply as a homeowner <svg class="arrow"><use href="#arrow"/></svg></a>
+          <a class="btn" href="quote.html">Join free <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+        <div class="tier featured">
+          <span class="label">Monthly</span>
+          <div class="price">From $79<small> a month — white-glove dispatch</small></div>
+          <p class="muted">One number to text for anything that goes wrong. We put the right vetted firm on it, confirm the price before work starts, and stay on it until it’s done.</p>
+          <ul>
+            <li><svg><use href="#tick"/></svg><span>Any trade, any time: plumbing, electrical, HVAC, roofing, the lot</span></li>
+            <li><svg><use href="#tick"/></svg><span>Member rates, with every quote checked against the pricing pledge</span></li>
+            <li><svg><use href="#tick"/></svg><span>Optional: recurring exterior services priced for your lot — mowing from $38 a visit</span></li>
+          </ul>
+          <a class="btn primary" href="quote.html">Start with my address <svg class="arrow"><use href="#arrow"/></svg></a>
         </div>
         <div class="tier">
+          <span class="label">Managed</span>
+          <div class="price">By quote<small> — one monthly bill</small></div>
+          <p class="muted">We act as the property manager for your home. A reviewer walks it with you, writes the year's plan, and one person owns it from then on.</p>
+          <ul>
+            <li><svg><use href="#tick"/></svg><span>Lawn, beds, irrigation, pest, gutters, snow, and what comes up</span></li>
+            <li><svg><use href="#tick"/></svg><span>Every visit scheduled, inspected, and reported — you never make the call</span></li>
+            <li><svg><use href="#tick"/></svg><span>Most homes land between $350 and $900 a month</span></li>
+          </ul>
+          <a class="btn" href="quote.html">Request a walk-through <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="tiers" style="margin-top:1px">
+        <div class="tier" style="grid-column:1 / -1">
           <span class="label">Businesses</span>
           <div class="price">$0<small> — and no way to pay</small></div>
           <p class="muted">Firms are nominated by a member or a listed firm, then reviewed against the seven-point Standard. Six to ten weeks.</p>
@@ -89,7 +111,7 @@
         <p class="lede">Most homeowners hear back within three weeks. Business nominations take six to ten weeks because the Standard takes six to ten weeks.</p>
         <div class="aside-list">
           <div><svg><use href="#tick"/></svg><span>Owner-occupied homes in Ada or Canyon County</span></div>
-          <div><svg><use href="#tick"/></svg><span>$180 a year, billed after acceptance — nothing due now</span></div>
+          <div><svg><use href="#tick"/></svg><span>Nothing to pay here — pricing starts from your address on the quote page</span></div>
           <div><svg><use href="#tick"/></svg><span>We never share your address with listed firms</span></div>
         </div>
       </aside>
@@ -161,12 +183,12 @@
   <div class="container">
     <div class="col"><a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a><p>A private register of vetted home professionals for Treasure Valley homeowners.</p><p>Boise, Idaho</p></div>
     <div class="col"><span class="label">Register</span><a href="standard.html">The Standard</a><a href="register.html">Admitted firms</a><a href="register.html#removals">Removals</a></div>
-    <div class="col"><span class="label">Membership</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
+    <div class="col"><span class="label">Plans</span><a href="membership.html">Join</a><a href="membership.html#business">Nominate a firm</a><a href="signin.html">Member sign in</a></div>
     <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><a href="about.html">About the Guild</a><a href="about.html#press">Press</a></div>
     <div class="legal"><span>© 2026 The HomeGuild.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
   </div>
 </footer>
 <script src="js/site.js"></script>
-<script type="module" src="js/terrain.js"></script>
+<script type="module" src="js/terrain.js?v=4"></script>
 </body>
 </html>

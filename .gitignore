@@ -1,3 +1,9 @@
 site/assets/raw/
 .DS_Store
 Thumbs.db
+
+node_modules/
+.netlify/
+.env
+deno.lock
+.impeccable/

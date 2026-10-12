@@ -1,0 +1,20 @@
+/* The HomeGuild — interactive house */
+.house-grid { position: relative; }
+.house-section .container { width: min(1480px, 100% - 2 * var(--gutter)); }
+.house-stage { position: relative; }
+.house-canvas { aspect-ratio: 16 / 9; min-height: 420px; max-height: 82vh; border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(80% 70% at 50% 60%, var(--bg-3), var(--bg) 100%); overflow: hidden; cursor: grab; }
+.house-canvas canvas { width: 100% !important; height: 100% !important; display: block; }
+.house-canvas:not(.live)::after { content: "Loading the house…"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink-3); font-size: 14px; }
+.house-canvas.failed::after { content: "3D view unavailable in this browser."; }
+.house-tip { position: absolute; transform: translate(-50%, -100%); padding: 6px 10px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 500; letter-spacing: .02em; white-space: nowrap; pointer-events: none; z-index: 2; }
+.house-tip[hidden] { display: none; }
+.house-hint { position: absolute; left: 16px; bottom: 12px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); pointer-events: none; }
+.house-panel { position: absolute; top: 24px; right: 24px; width: min(340px, calc(100% - 48px)); border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--bg-2) 94%, transparent); padding: 22px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; overflow: hidden; }
+@media (max-width: 700px) { .house-panel { position: static; width: auto; margin-top: 16px; } }
+.house-panel[hidden] { display: none; }
+.house-photo { width: calc(100% + 44px); max-width: none; height: auto; margin: -22px -22px 4px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; border-bottom: 1px solid var(--line); }
+.house-panel p { font-size: 15px; color: var(--ink-2); }
+.house-price { display: grid; gap: 4px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.house-price b { font-family: var(--font-display); font-weight: 600; font-size: 32px; letter-spacing: var(--display-tracking); line-height: 1; }
+.house-price small { font-size: 13px; color: var(--ink-2); }
+.house-panel .btn { justify-self: start; margin-top: 4px; }

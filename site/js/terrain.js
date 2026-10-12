@@ -3,11 +3,14 @@
 // a USGS quad of the Boise Front looks. Renders through WebGPU; Three falls back to
 // WebGL2 automatically where WebGPU is unavailable. If neither works the static SVG stays.
 
-import * as THREE from 'three/webgpu';
-import {
+// Absolute URL on purpose: browser extensions that inject a module script before the page's
+// import map is registered make bare specifiers ('three/webgpu') fail to resolve. The WebGPU
+// build exports TSL itself, so nothing here depends on the import map.
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js';
+const {
   Fn, uniform, uv, vec2, vec3, vec4, float, mix, smoothstep, fract, floor, abs,
-  min, fwidth, mx_noise_float, screenSize
-} from 'three/tsl';
+  min, fwidth, mx_noise_float
+} = THREE.TSL;
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -24,13 +27,13 @@ export async function mountTerrain(host, opts = {}) {
   const o = Object.assign({
     line: '#9BA88D',        // sage
     accent: '#D9A441',      // bitterbrush gold
-    lineAlpha: 0.32,
-    accentAlpha: 0.55,
+    lineAlpha: 0.24,        // quiet: the copy and the address panel lead
+    accentAlpha: 0.48,
     levels: 12,             // contour interval count
     scale: 1.9,             // noise frequency
-    speed: 0.022,
+    speed: 0.014,           // slow drift, not a lava lamp
     accentLevel: 9,         // which contour gets the gold
-    parallax: 0.04,
+    parallax: 0.02,
     maxDpr: 1.5
   }, opts);
 

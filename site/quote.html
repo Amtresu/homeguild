@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start with your address — The HomeGuild</title>
+<meta name="description" content="Enter your address. We measure the lot from county parcel records and price every exterior service for your home — mowing, pest control, sprinkler blowouts and more.">
+<meta name="theme-color" content="#1E221F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
+<link rel="stylesheet" href="css/site.css?v=10">
+<link rel="stylesheet" href="css/quote.css?v=5">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 26 12 14l5 6 4-8 7 14"/><path d="M4 20 10 11"/><path d="M22 26l6-9"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></symbol>
+  <symbol id="tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.5"/><path d="M6 10.3l2.6 2.6L14 7.5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="standard.html">The Standard</a>
+      <a href="register.html">The Register</a>
+      <a href="membership.html">Plans</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <a class="btn sm ghost" href="signin.html">Sign in</a>
+      <a class="btn sm primary" href="quote.html" aria-current="page">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<main class="quote">
+
+  <!-- Step 1: address -->
+  <section class="quote-hero" id="step-address">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="label">Ada &amp; Canyon counties</span>
+        <h1 class="display h1">Your address is the <em>whole</em> application.</h1>
+        <p class="lede">We pull your lot from the county parcel record and measure it. Then you choose: join free for member rates, go monthly for white-glove dispatch, or hand us the whole house.</p>
+      </div>
+      <form class="address-form" id="addressForm" autocomplete="street-address">
+        <div class="address-field">
+          <label for="address" class="label">Street address</label>
+          <input id="address" name="address" type="text" required placeholder="1601 N 13th St, Boise" autocomplete="street-address" spellcheck="false">
+        </div>
+        <button class="btn primary" type="submit" id="measureBtn">Measure my property <svg class="arrow"><use href="#arrow"/></svg></button>
+        <p class="form-note" id="addressNote">Street and city is enough. Owner-occupied single-family homes only.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Step 2: the lot -->
+  <section class="section tight lot" id="step-lot" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Step 2 of 4 · Your lot</span><h2 class="display h2">Here's what the county has on file.</h2></div>
+        <p class="lede">The outline is your parcel as the assessor draws it. The lawn figure is our estimate after the house, drive, and beds — slide it if you know better. The crew confirms everything on the first visit; your price only moves if the lawn does.</p>
+      </div>
+      <div class="lot-grid">
+        <div class="map-wrap">
+          <div id="map" aria-label="Satellite view of the parcel"></div>
+          <p class="map-cap"><span id="mapSource"></span> · imagery Esri</p>
+        </div>
+        <div class="lot-card">
+          <div class="lot-top">
+            <div>
+              <span class="label">Parcel</span>
+              <h3 class="display h3" id="lotAddress"></h3>
+              <p class="muted" id="lotMeta"></p>
+            </div>
+            <button class="btn sm" type="button" id="changeAddress">Not it?</button>
+          </div>
+          <dl class="lot-stats">
+            <div><dt>Lot</dt><dd class="num" id="statLot"></dd></div>
+            <div><dt>Lawn <small>est.</small></dt><dd class="num" id="statLawn"></dd></div>
+            <div><dt>Foundation <small>est.</small></dt><dd class="num" id="statPerimeter"></dd></div>
+            <div><dt>Sprinkler zones <small>est.</small></dt><dd class="num" id="statZones"></dd></div>
+          </dl>
+          <div class="lawn-adjust">
+            <label for="lawnSlider" class="label">Adjust lawn area</label>
+            <input type="range" id="lawnSlider" min="0" max="10000" step="50">
+            <p class="hint"><span id="lawnPct"></span> of the lot. <button type="button" class="link" id="lawnReset">Reset to estimate</button></p>
+          </div>
+          <a class="btn primary" href="#step-tier" id="toTier">Next: how much do you want handled? <svg class="arrow"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: tier -->
+  <section class="section tier-pick" id="step-tier" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Step 3 of 4 · Plan</span><h2 class="display h2">How much of the house do you want us to carry?</h2></div>
+        <p class="lede">Pick one. You can switch any season — the measurements stay with your address. <a class="accent" href="membership.html">Compare the plans in full →</a></p>
+      </div>
+      <div class="plan-pick" role="list">
+        <button class="plan" type="button" data-tier="free" role="listitem">
+          <span class="plan-name">Free</span>
+          <span class="plan-what">Join the network. Vetted firms at member rates when I need one.</span>
+          <span class="plan-cost">$0 · no monthly fee</span>
+        </button>
+        <button class="plan featured" type="button" data-tier="monthly" role="listitem">
+          <span class="plan-name">Monthly</span>
+          <span class="plan-what">White-glove dispatch. I text, you send the right firm and see it through.</span>
+          <span class="plan-cost">From $79 a month</span>
+        </button>
+        <button class="plan" type="button" data-tier="managed" role="listitem">
+          <span class="plan-name">Managed</span>
+          <span class="plan-what">Be my property manager. Quote me after a walk-through.</span>
+          <span class="plan-cost">By quote</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free: lead form -->
+  <section class="section lead" id="step-free" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Step 4 of 4 · Free</span><h2 class="display h2">Join the network.</h2></div>
+        <p class="lede">Tell us what the house needs now, or nothing yet. When there is a job, we send your name, address, and lot measurements to at most two vetted firms for that trade; they call you at member rates. No card, no monthly fee, no obligation.</p>
+      </div>
+      <form class="form lead-form" id="freeForm" novalidate>
+        <input type="hidden" name="tier" value="free">
+        <fieldset class="trades">
+          <legend class="label">What does the home need right now? <span class="hint">optional</span></legend>
+          <div class="chips" id="freeTrades"></div>
+        </fieldset>
+        <div class="grid-2">
+          <div class="field"><label for="freeName">Name</label><input id="freeName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="freeEmail">Email</label><input id="freeEmail" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="freePhone">Phone <span class="hint">optional — firms prefer to call</span></label><input id="freePhone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="freeNotes">Anything the firm should know</label><textarea id="freeNotes" name="notes" placeholder="Back lawn is mostly shade. Sprinkler controller is in the garage."></textarea></div>
+        <label class="consent"><input type="checkbox" name="consent" required><span>When I have a job, share my details with up to two vetted firms for that trade so they can contact me. Firms pay The HomeGuild for the introduction; I never pay to join.</span></label>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div><button class="btn primary" type="submit">Join free <svg class="arrow"><use href="#arrow"/></svg></button></div>
+        <p class="form-note err" data-err hidden></p>
+      </form>
+      <div class="form-success" data-ok role="status"><span class="label">You're in</span><h3 class="display h3">Welcome to the network.</h3><p class="muted">If you named a job, expect a call within two business days. If nobody on the register fits, a reviewer tells you that instead of sending someone who doesn't.</p></div>
+    </div>
+  </section>
+
+  <!-- Managed: quote request -->
+  <section class="section lead" id="step-managed" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Step 4 of 4 · Managed</span><h2 class="display h2">Let's walk the property.</h2></div>
+        <p class="lede">A reviewer meets you at the house, walks every corner with you, and writes a year's plan with a monthly price. The walk is free. Most take forty minutes.</p>
+      </div>
+      <form class="form lead-form" id="managedForm" novalidate>
+        <input type="hidden" name="tier" value="managed">
+        <fieldset class="trades">
+          <legend class="label">What should the plan cover?</legend>
+          <div class="chips" id="managedScope"></div>
+        </fieldset>
+        <div class="grid-2">
+          <div class="field"><label for="mName">Name</label><input id="mName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label for="mPhone">Phone</label><input id="mPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="mWhen">Good times for the walk</label><input id="mWhen" name="when" placeholder="Weekday mornings; any Saturday"></div>
+        </div>
+        <div class="field"><label for="mNotes">About the property</label><textarea id="mNotes" name="notes" placeholder="Second home, we're there May–September. Pool. Two large maples that drop everywhere."></textarea></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div><button class="btn primary" type="submit">Request the walk-through <svg class="arrow"><use href="#arrow"/></svg></button></div>
+        <p class="form-note err" data-err hidden></p>
+      </form>
+      <div class="form-success" data-ok role="status"><span class="label">Received</span><h3 class="display h3">A reviewer will call to set the walk.</h3><p class="muted">Usually within one business day. You'll have the written plan and price within a week of the walk.</p></div>
+    </div>
+  </section>
+
+  <!-- À la carte: services -->
+  <section class="section services" id="step-services" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="label">Step 4 of 4 · Monthly</span><h2 class="display h2">Priced for <span id="priceFor">your lot</span>.</h2></div>
+        <p class="lede">White-glove dispatch is the membership: one number to text for anything, from $79 a month. Everything below is à la carte on top of it, priced for your lot — add what you want, skip what you don't, change it any season.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-groups" id="serviceGroups"></div>
+        <aside class="cart" id="cart" aria-live="polite">
+          <span class="label">Your plan</span>
+          <ul class="cart-lines" id="cartLines"></ul>
+          <p class="cart-empty" id="cartEmpty">Dispatch only for now. Add services any time.</p>
+          <div class="cart-totals">
+            <div class="row"><span>Due today</span><b class="num" id="cartFirst">$0</b></div>
+            <div class="row"><span>Estimated per year</span><b class="num" id="cartAnnual">$0</b></div>
+          </div>
+          <button class="btn primary" type="button" id="checkoutBtn" disabled>Continue to checkout <svg class="arrow"><use href="#arrow"/></svg></button>
+          <p class="form-note">Membership starts today. Service visits are held, not charged, until each is on the calendar. Cancel anything with a week's notice.</p>
+          <p class="form-note err" id="checkoutErr" hidden></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="col"><a class="brand" href="index.html"><svg class="mark"><use href="#mark"/></svg><span>The HomeGuild</span></a><p>A private register of home professionals for the Treasure Valley.</p></div>
+    <div class="col"><span class="label">Register</span><a href="register.html">The Register</a><a href="standard.html">The Standard</a><a href="about.html#removals">Removals log</a></div>
+    <div class="col"><span class="label">Join</span><a href="quote.html">Get a quote</a><a href="membership.html">Plans</a><a href="signin.html">Sign in</a></div>
+    <div class="col"><span class="label">Contact</span><a href="mailto:hello@thehomeguild.com">hello@thehomeguild.com</a><p>Boise, Idaho</p></div>
+    <div class="legal"><span>© 2026 The HomeGuild. Measurements from Ada County Assessor and IDWR parcel records; not a survey.</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
+<script src="js/site.js?v=3"></script>
+<script type="module" src="js/quote.js?v=5"></script>
+</body>
+</html>

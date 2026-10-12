@@ -1,0 +1,111 @@
+/* The HomeGuild — quote flow (quote.html) */
+
+.quote-hero { padding: clamp(80px, 10vw, 140px) 0 clamp(56px, 7vw, 96px); border-bottom: 1px solid var(--line); background: radial-gradient(120% 80% at 80% 0%, var(--bg-3), var(--bg) 60%); }
+.quote-hero .container { display: grid; gap: 40px; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: end; }
+@media (max-width: 900px) { .quote-hero .container { grid-template-columns: 1fr; } }
+
+.address-form { display: grid; gap: 14px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--bg-2) 92%, transparent); }
+.address-field { display: grid; gap: 8px; }
+.address-field input { width: 100%; padding: 16px 18px; font: inherit; font-size: 18px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
+.address-field input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+.address-form .btn { justify-content: center; }
+.address-form.busy .btn { opacity: .6; pointer-events: none; }
+.address-form.busy .btn .arrow { animation: nudge .8s var(--ease) infinite alternate; }
+@keyframes nudge { to { transform: translateX(4px); } }
+.form-note.err { color: var(--accent); }
+
+/* Step 2 */
+.lot-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(320px, .7fr); gap: 32px; align-items: start; }
+@media (max-width: 900px) { .lot-grid { grid-template-columns: 1fr; } }
+.map-wrap { display: grid; gap: 10px; }
+#map { aspect-ratio: 4 / 3; min-height: 320px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-3); filter: saturate(.85) contrast(1.05); }
+.map-cap { font-size: 13px; color: var(--ink-3); }
+.leaflet-container { font-family: var(--font-body); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--bg) 80%, transparent) !important; color: var(--ink-3) !important; font-size: 10px; }
+.leaflet-control-attribution a { color: var(--ink-2) !important; }
+.leaflet-bar a { background: var(--bg-2) !important; color: var(--ink) !important; border-color: var(--line) !important; }
+
+.lot-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); padding: 24px; display: grid; gap: 22px; }
+.lot-top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.lot-top .label { display: block; margin-bottom: 8px; }
+.lot-top .muted { font-size: 14px; margin-top: 6px; }
+.lot-stats { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.lot-stats div { background: var(--bg-2); padding: 14px 16px; display: grid; gap: 4px; }
+.lot-stats dt { font-size: 12px; letter-spacing: var(--label-tracking); text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.lot-stats dt small { text-transform: none; letter-spacing: 0; color: var(--ink-3); }
+.lot-stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: var(--display-tracking); line-height: 1; }
+.lot-stats dd small { font-family: var(--font-body); font-weight: 400; font-size: 13px; color: var(--ink-2); letter-spacing: 0; margin-left: 4px; }
+.lawn-adjust { display: grid; gap: 10px; }
+.lawn-adjust input[type=range] { width: 100%; accent-color: var(--accent); }
+.lawn-adjust .hint { font-size: 13px; color: var(--ink-3); }
+button.link { background: none; border: 0; padding: 0; font: inherit; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+button.link:hover { color: var(--ink); }
+.lot-card .btn { justify-content: center; }
+
+/* Step 3: plan */
+.plan-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+@media (max-width: 800px) { .plan-pick { grid-template-columns: 1fr; } }
+.plan { display: grid; gap: 10px; align-content: start; padding: 28px 26px 30px; background: var(--bg-2); border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; transition: background .15s; }
+.plan:hover { background: var(--bg-3); }
+.plan.featured { background: color-mix(in srgb, var(--seal) 8%, var(--bg-2)); box-shadow: inset 0 2px 0 var(--accent); }
+.plan.featured:hover { background: color-mix(in srgb, var(--seal) 14%, var(--bg-2)); }
+.plan-name { font-family: var(--font-display); font-weight: 600; font-size: 28px; letter-spacing: var(--display-tracking); line-height: 1; }
+.plan-what { font-size: 15px; color: var(--ink-2); }
+.plan-cost { font-weight: 500; font-size: 12px; letter-spacing: var(--label-tracking); text-transform: uppercase; color: var(--accent); margin-top: 8px; }
+.lede a.accent { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Step 4: lead forms (free, managed) */
+.lead .container { display: grid; gap: 0; }
+.lead-form { max-width: 640px; }
+.lead-form .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .lead-form .grid-2 { grid-template-columns: 1fr; } }
+.lead-form fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 12px; }
+.lead-form legend { padding: 0; margin-bottom: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg-2); font-size: 14px; color: var(--ink-2); cursor: pointer; transition: all .15s; user-select: none; }
+.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip:has(input:checked) { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.chip:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+.field label .hint { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--ink-3); margin-left: 6px; }
+.consent { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; font-size: 14px; color: var(--ink-2); cursor: pointer; }
+.consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.lead-form.busy button[type=submit] { opacity: .6; pointer-events: none; }
+.lead .form-success { max-width: 640px; }
+
+/* Step 4: à la carte */
+.services-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; align-items: start; }
+@media (max-width: 960px) { .services-grid { grid-template-columns: 1fr; } }
+.service-groups { display: grid; gap: 40px; }
+.service-group { display: grid; gap: 14px; }
+.service-group > .label { display: block; }
+.service-list { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.service { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 18px; align-items: start; padding: 20px 22px; background: var(--bg-2); cursor: pointer; transition: background .15s; text-align: left; border: 0; font: inherit; color: inherit; width: 100%; }
+.service:hover { background: var(--bg-3); }
+.service[aria-pressed="true"] { background: color-mix(in srgb, var(--seal) 10%, var(--bg-2)); }
+.service .box { width: 22px; height: 22px; margin-top: 2px; border: 1px solid var(--ink-3); border-radius: var(--radius); display: grid; place-items: center; color: transparent; transition: all .15s; }
+.service .box svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+.service[aria-pressed="true"] .box { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.service .body { display: grid; gap: 5px; }
+.service h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: var(--display-tracking); line-height: 1.15; }
+.service p { font-size: 14px; color: var(--ink-2); max-width: 56ch; }
+.service .basis { font-size: 12px; color: var(--ink-3); letter-spacing: .04em; }
+.service .price { text-align: right; display: grid; gap: 2px; }
+.service .price b { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: var(--display-tracking); line-height: 1; }
+.service .price small { font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+@media (max-width: 560px) { .service { grid-template-columns: 28px minmax(0, 1fr); } .service .price { grid-column: 2; text-align: left; } }
+
+.cart { position: sticky; top: 92px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); padding: 24px; display: grid; gap: 18px; }
+.cart-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 14px; }
+.cart-lines li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+.cart-lines li span small { display: block; color: var(--ink-3); font-size: 12px; }
+.cart-lines li b { font-weight: 500; white-space: nowrap; }
+.cart-empty { font-size: 14px; color: var(--ink-3); }
+.cart-empty[hidden] { display: none; }
+.cart-totals { display: grid; gap: 8px; font-size: 14px; }
+.cart-totals .row { display: flex; justify-content: space-between; gap: 12px; }
+.cart-totals .row:first-child b { font-family: var(--font-display); font-weight: 600; font-size: 28px; letter-spacing: var(--display-tracking); line-height: 1; }
+.cart .btn { justify-content: center; }
+.cart .btn[disabled] { opacity: .45; cursor: not-allowed; }
+.cart .btn[disabled]:hover { background: var(--accent); color: var(--accent-ink); }
